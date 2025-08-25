@@ -1,0 +1,37 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine  # Using Alpine for smaller image size
+    container_name: power-tariffs-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: power-tariffs
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: power-tariffs
+      # Optional: Set timezone
+      TZ: UTC
+    ports:
+      - "5435:5432"  # Host:Container port mapping
+    volumes:
+      # Persist data between container restarts
+      - postgres_data:/var/lib/postgresql/data
+      # Optional: Mount initialization scripts
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U power-tariffs -d power-tariffs"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - postgres_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  postgres_network:
+    driver: bridge

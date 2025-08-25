@@ -1,0 +1,131 @@
+[project]
+name = "power-tariffs"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi ~= 0.115.12",
+    "rich ~= 13.6.0",
+    "backoff ~= 2.2.1",
+    "sqlmodel ~= 0.0.22",
+    "alembic[tz] ~= 1.13.3",
+    "asyncpg ~= 0.29.0",
+    "greenlet ~= 3.0.0",
+    # "engrate-sdk ~= 0.0.19",
+    "engrate-sdk",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.5",
+    "pytest ~= 7.4.0",
+    "jurigged ~= 0.6.0",
+    "pytest-xdist ~= 3.6.1",
+    "ipdb ~= 0.13.13",
+    "ipython ~= 8.15.0",
+    "shiv ~= 1.0.5",
+    "pgcli[asyncpg] ~= 4.1.0",
+    "pytest-testmon ~= 2.1.3",
+    "pyyaml ~= 6.0.2",
+]
+
+[project.scripts]
+power-tariffs = 'main:main'
+
+[tool.uv.sources]
+power-tariffs = { workspace = true }
+engrate-sdk = { path = "/Users/carlos/devs/engrate/engrate-sdk", editable = true }
+
+[project.optional-dependencies]
+dev = ["uv", "pip"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+exclude = ["src/migrations"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pyright]
+# Python version and environment
+pythonVersion = "3.11" # Adjust to your Python version
+venvPath = "."
+venv = ".venv"
+
+# Type checking mode - "basic" is more relaxed than "strict"
+# Options: "off", "basic", "standard", "strict"
+typeCheckingMode = "basic"
+
+# Report specific type checking issues as warnings instead of errors
+# You can adjust these based on your needs
+reportGeneralTypeIssues = "warning"
+reportMissingImports = "warning"
+reportMissingTypeStubs = false
+reportUnusedImport = "warning"
+reportUnusedClass = "warning"
+reportUnusedFunction = "warning"
+reportUnusedVariable = "warning"
+reportDuplicateImport = "warning"
+reportOptionalSubscript = "warning"
+reportOptionalMemberAccess = "warning"
+reportOptionalCall = "warning"
+reportOptionalIterable = "warning"
+reportOptionalContextManager = "warning"
+reportOptionalOperand = "warning"
+reportTypedDictNotRequiredAccess = "warning"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
+reportUntypedBaseClass = "warning"
+reportUntypedNamedTuple = "warning"
+reportPrivateUsage = "warning"
+reportConstantRedefinition = "warning"
+reportIncompatibleMethodOverride = "warning"
+reportIncompatibleVariableOverride = "warning"
+reportOverlappingOverload = "warning"
+reportUninitializedInstanceVariable = "warning"
+reportInvalidStringEscapeSequence = "warning"
+reportInvalidTypeVarUse = "warning"
+reportMissingTypeArgument = "warning"
+reportCallInDefaultInitializer = "warning"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportAssertAlwaysTrue = "warning"
+reportSelfClsParameterName = "warning"
+reportUnusedExpression = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportMatchNotExhaustive = "warning"
+reportArgumentType = "warning"
+# Include/exclude paths (optional)
+include = ["src"] # Adjust to your source directories
+exclude = [
+    "**/__pycache__",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    ".git",
+    ".tox",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".hypothesis",
+]
+
+# Strict mode settings (all set to false for a more relaxed approach)
+strictListInference = false
+strictDictionaryInference = false
+strictSetInference = false
+analyzeUnannotatedFunctions = true
+strictParameterNoneValue = false
+enableTypeIgnoreComments = true
+deprecateTypingAliases = false
+
+# Import resolution
+useLibraryCodeForTypes = true
+autoImportCompletions = true
+
+# Ignore specific modules without type stubs
+ignore = ["jurigged"]

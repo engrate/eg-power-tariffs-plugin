@@ -1,0 +1,24 @@
+name: "power-tariffs"
+author: "Carlos RM"
+description: "Provides the definition of the power tariffs based on grid distribution areas"
+product_category: "market_intelligence"
+extensions:
+  markets:
+    - "*"
+    - "nl"
+    - "de"
+    - "se"
+plugin_metadata:
+  display_name: "Power Tariffs"
+  service_name: "power-tariffs"
+  url_prefix: "power-tariffs"
+  fav_icon: ""
+  image: ""
+  port: "3011"
+  api_version: "v1"
+  flavors:
+    - "external-api"
+  traits:
+    - "storage"
+
+
