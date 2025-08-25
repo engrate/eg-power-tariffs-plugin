@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: power-tariffs
+  datasource:
+    url: jdbc:postgresql://localhost:5432/power-tariffs
+    driver-class-name: org.postgresql.Driver
+    username: engrate
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update           # or create, update, create-drop, validate
+    show-sql: true               # optional, to show SQL in logs
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    deserialization:
+      fail-on-unknown-properties: false
+logging:
+  level:
+    root: INFO
+
+elomraden:
+  base-url: ${ELOMRADEN_BASE_URL}
+  user: ${ELOMRADEN_USER}
+  apikey: ${ELOMRADEN_APIKEY}

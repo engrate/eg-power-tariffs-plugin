@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Git pre-commit hook for running Gradle checks
+# This hook runs `./gradlew check` and prevents the commit if it fails.
+# It is designed to be used with `core.hooksPath` pointing to .githooks
+# (installed via `make hooks-install`).
+
+set -euo pipefail
+
+# Move to repository root (Git runs hooks from repo root, but just in case)
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+cd "$REPO_ROOT"
+
+echo "[pre-commit] Running Gradle checks (./gradlew check) ..."
+
+# Use the Gradle Wrapper for consistent builds
+if [[ ! -x "./gradlew" ]]; then
+  echo "[pre-commit] ERROR: Gradle Wrapper (./gradlew) not found or not executable."
+  echo "[pre-commit] Run: chmod +x gradlew"
+  exit 1
+fi
+
+# Run checks
+./gradlew --no-daemon check
+STATUS=$?
+
+if [[ $STATUS -ne 0 ]]; then
+  echo "[pre-commit] Gradle check failed. Aborting commit."
+  exit $STATUS
+fi
+
+echo "[pre-commit] Gradle check passed. Proceeding with commit."

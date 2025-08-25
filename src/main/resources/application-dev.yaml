@@ -1,0 +1,8 @@
+logging:
+  level:
+    io.engrate: DEBUG
+
+elomraden:
+  base-url: https://elomraden.se/api/lookup/typ # Replace with actual URL
+  user: engrate_test
+  apikey: 6d60c47f1d2f79aa2088942bd9eb
