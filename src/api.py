@@ -71,6 +71,15 @@ async def lifespan(fast_app: FastAPI):
 
 
 ##Exception handlers###
+@app.exception_handler(Exception)
+async def global_exception_handler(request:Request,exc: Exception):
+    logger.error(f"An unexpected error occurred: {exc}", exc_info=exc)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "An unexpected error occurred."},
+    )
+
+
 @app.exception_handler(ex.MissingError)
 async def missing_error_exception_handler(request:Request,exc: ex.MissingError):
     detail = f"{str(exc.kind).capitalize()} with ID {exc.id} not found"
