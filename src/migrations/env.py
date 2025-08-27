@@ -21,8 +21,6 @@ target_metadata = BaseSQLModel.metadata
 logger = log.get_logger(__name__)
 
 
-schema_name = "power_tariffs"
-
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
 
@@ -49,8 +47,7 @@ def run_migrations_offline() -> None:
 
 def do_run_migrations(connection):
     context.configure(connection=connection,
-                      target_metadata=target_metadata,
-                      version_table_schema=schema_name)
+                      target_metadata=target_metadata)
     with context.begin_transaction():
         context.run_migrations()
 
@@ -72,8 +69,6 @@ async def run_migrations_online() -> None:
     )
 
     async with connectable.connect() as connection:
-        await connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema_name}"))
-        await connection.commit()
         await connection.run_sync(do_run_migrations)
 
 

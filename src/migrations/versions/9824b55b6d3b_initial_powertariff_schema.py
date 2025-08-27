@@ -19,9 +19,6 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade():
-    # Create the power_tariff schema
-    op.execute('CREATE SCHEMA IF NOT EXISTS power_tariffs')
-
     # Create providers table
     op.create_table(
         'providers',
@@ -33,25 +30,21 @@ def upgrade():
         sa.UniqueConstraint("ediel"),
         sa.UniqueConstraint('name'),
         sa.UniqueConstraint("org_number"),
-        schema= "power_tariffs"
     )
 
     op.create_index(
         'ix_providers_name',
         'providers', ['name'],
-        schema='power_tariffs'
     )
 
     op.create_index(
         'ix_providers_org_number',
         'providers', ['org_number'],
-        schema='power_tariffs'
     )
 
     op.create_index(
         'ix_providers_ediel',
         'providers', ['ediel'],
-        schema='power_tariffs'
     )
 
     # Create power_tariffs table
@@ -64,14 +57,12 @@ def upgrade():
         sa.Column('last_updated', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column('valid_from', sa.DateTime(timezone=True), nullable=False),
         sa.Column('valid_to', sa.DateTime(timezone=True), nullable=False),
-        schema='power_tariffs'
     )
 
     op.create_foreign_key(
         'fk_power_tariffs_provider_uid',
         'power_tariffs', 'providers',
         ['provider_uid'], ['uid'],
-        source_schema='power_tariffs', referent_schema='power_tariffs'
     )
 
     # Create power_tariff_fees table
@@ -85,20 +76,17 @@ def upgrade():
         sa.Column('samples_per_month', sa.Integer(), nullable=False),
         sa.Column('time_unit', sa.String(length=20), nullable=False),
         sa.Column('building_types', ARRAY(sa.String(length=50))),
-        schema='power_tariffs'
     )
 
     op.create_foreign_key(
         'fk_power_tariff_fees_tariff_id',
         'power_tariff_fees', 'power_tariffs',
         ['tariff_id'], ['uid'],
-        source_schema='power_tariffs', referent_schema='power_tariffs',
         ondelete='CASCADE'
     )
     op.create_index(
         'ix_power_tariff_fees_tariff_id',
         'power_tariff_fees', ['tariff_id'],
-        schema='power_tariffs'
     )
 
     # Create tariff_compositions table
@@ -115,7 +103,6 @@ def upgrade():
         sa.Column('price_exc_vat', sa.Float(), nullable=False),
         sa.Column('price_inc_vat', sa.Float(), nullable=False),
         sa.Column('intervals', JSON, nullable=False),
-        schema='power_tariffs'
     )
 
     # Add foreign key constraint separately
@@ -123,34 +110,27 @@ def upgrade():
         'fk_tariff_compositions_fee_id',
         'tariff_compositions', 'power_tariff_fees',
         ['fee_id'], ['uid'],
-        source_schema='power_tariffs', referent_schema='power_tariffs',
         ondelete='CASCADE'
     )
     op.create_index(
         'ix_tariff_compositions_fee_id',
         'tariff_compositions', ['fee_id'],
-        schema='power_tariffs'
     )
 
 def downgrade():
     # Drop foreign key constraints first
     op.drop_constraint(
         'fk_tariff_compositions_fee_id', 'tariff_compositions',
-        schema='power_tariffs'
     )
     op.drop_constraint(
         'fk_power_tariff_fees_tariff_id', 'power_tariff_fees',
-        schema='power_tariffs'
     )
 
     # Drop tables in reverse order
-    op.drop_index('ix_tariff_compositions_fee_id', schema='power_tariffs')
-    op.drop_table('tariff_compositions', schema='power_tariffs')
+    op.drop_index('ix_tariff_compositions_fee_id')
+    op.drop_table('tariff_compositions')
 
-    op.drop_index('ix_power_tariff_fees_tariff_id', schema='power_tariffs')
-    op.drop_table('power_tariff_fees', schema='power_tariffs')
+    op.drop_index('ix_power_tariff_fees_tariff_id')
+    op.drop_table('power_tariff_fees')
 
-    op.drop_table('power_tariffs', schema='power_tariffs')
-
-    # Drop the schema
-    op.execute('DROP SCHEMA power_tariffs')
+    op.drop_table('power_tariffs')

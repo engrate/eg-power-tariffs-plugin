@@ -29,10 +29,9 @@ metadata = MetaData()
 
 class TariffComposition(BaseSQLModel):
     __tablename__ = "tariff_compositions"
-    __table_args__ = {"schema": "power_tariffs"}
 
     uid = Column(UUID, primary_key=True, default=uuid7)
-    fee_id = Column(UUID, ForeignKey("power_tariffs.power_tariff_fees.uid"), nullable=False)
+    fee_id = Column(UUID, ForeignKey("power_tariff_fees.uid"), nullable=False)
     months = Column(ARRAY(Integer), nullable=False)
     days = Column(ARRAY(String), nullable=False)
     fuse_from = Column(String(10), nullable=False)
@@ -48,10 +47,9 @@ class TariffComposition(BaseSQLModel):
 
 class PowerTariffFee(BaseSQLModel):
     __tablename__ = "power_tariff_fees"
-    __table_args__ = {"schema": "power_tariffs"}
 
     uid = Column(UUID, primary_key=True, default=uuid7)
-    tariff_id = Column(UUID, ForeignKey("power_tariffs.power_tariffs.uid"), nullable=False)
+    tariff_id = Column(UUID, ForeignKey("power_tariffs.uid"), nullable=False)
     name = Column(String(255), nullable=False)
     model = Column(String(50), nullable=False)
     description = Column(Text)
@@ -66,7 +64,6 @@ class PowerTariffFee(BaseSQLModel):
 
 class GridProvider(BaseSQLModel):
     __tablename__ = "providers"
-    __table_args__ = {"schema": "power_tariffs"}
 
     uid = Column(UUID, primary_key=True, default=uuid7)
     name = Column(String, nullable=False, unique=True)
@@ -89,10 +86,9 @@ class GridProvider(BaseSQLModel):
 
 class PowerTariff(BaseSQLModel):
     __tablename__ = "power_tariffs"
-    __table_args__ = {"schema": "power_tariffs"}
 
     uid = Column(UUID, primary_key=True, default=uuid7)
-    provider_uid: UUID = Column(UUID, ForeignKey("power_tariffs.providers.uid"), nullable=False)
+    provider_uid: UUID = Column(UUID, ForeignKey("providers.uid"), nullable=False)
     country_code = Column(String(5), nullable=False, unique=True)
     time_zone = Column(String(50), nullable=False, unique=False, default="Europe/Stockholm")
     valid_from = Column(DateTime(timezone=True), nullable=False)

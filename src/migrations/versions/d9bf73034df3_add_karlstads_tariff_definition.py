@@ -34,7 +34,6 @@ def upgrade() -> None:
             sa.column('org_number', sa.String),
             sa.column('ediel', sa.Integer),
             sa.column('active', sa.Boolean),
-            schema = 'power_tariffs'
         ),
         [
             {'uid':karlstad_uuid,'name': u'Karlstads Elnät AB', 'org_number': '556071-6085', 'ediel': 24300, 'active': True}
@@ -56,7 +55,6 @@ def upgrade() -> None:
             sa.column('last_updated', sa.DateTime),
             sa.column('valid_from', sa.DateTime),
             sa.column('valid_to', sa.DateTime),
-            schema='power_tariffs'
         ),
         [
             {
@@ -83,7 +81,6 @@ def upgrade() -> None:
             sa.column('samples_per_month', sa.Integer),
             sa.column('time_unit', sa.String),
             sa.column('building_types', ARRAY(sa.String)),
-            schema='power_tariffs'
         ),
         [
             {
@@ -134,7 +131,6 @@ def upgrade() -> None:
             sa.column('price_exc_vat', sa.Float),
             sa.column('price_inc_vat', sa.Float),
             sa.column('intervals', JSONB),
-            schema='power_tariffs'
         ),
         [
             {
@@ -156,7 +152,7 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.execute(
-        sa.text("DELETE FROM power_tariffs.providers WHERE uuid = :uuid CASCADE"),
+        sa.text("DELETE FROM providers WHERE uuid = :uuid CASCADE"),
         {'uuid': karlstad_uuid}
     )
 
