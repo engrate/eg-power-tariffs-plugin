@@ -66,7 +66,7 @@ def run(args):
             )
             return 3
 
-        alembic_cfg.set_main_option("script_location", "src:migrations")
+        alembic_cfg.set_main_option("configure_logger", "False")
         command.upgrade(alembic_cfg, "head")
 
     if conf.debug and conf.autoreload:
@@ -75,7 +75,7 @@ def run(args):
 
         jurigged.watch("/", logger=conservative_logger)
 
-    HttpServer.run(conf, "api:app")
+    HttpServer.run(conf, "src.api:app")
     logger.info("Server stopped.")
     return 0
 

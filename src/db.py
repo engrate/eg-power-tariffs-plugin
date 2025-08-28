@@ -10,7 +10,7 @@ from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
 from engrate_sdk.utils import log
-import env
+from src import env
 from src import app
 
 logger = log.get_logger(__name__)

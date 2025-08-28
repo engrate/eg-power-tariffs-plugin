@@ -4,7 +4,7 @@ import rich.traceback
 from engrate_sdk.utils import log
 from typing import List
 
-from . import env
+from src import env
 
 logger = log.get_logger(__name__)
 

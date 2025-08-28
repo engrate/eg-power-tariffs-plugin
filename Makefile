@@ -52,6 +52,9 @@ help: ## Show this help message
 	@echo "Cleanup:"
 	@echo "  make clean           - Stop containers and remove volumes (WARNING: Deletes all data!)"
 	@echo "  make prune           - Remove all unused containers, networks, images"
+	@echo ""
+	@echo "Deployment:"
+	@echo "  make push-staging-image  - Push backend Docker image to eg-sandbox-registry staging ECR"
 
 # Docker Compose Commands
 .PHONY: up
@@ -198,3 +201,7 @@ fresh: ## Stop everything, clean volumes, and start fresh (WARNING: Deletes all 
 	@sleep 5
 	@make clean
 	@make setup
+
+.PHONY: push-staging-image
+push-staging-image:
+	@bin/push-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs

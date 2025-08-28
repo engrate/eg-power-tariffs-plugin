@@ -1,19 +1,19 @@
 # syntax=docker/dockerfile:1.2
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /power-tariffs
 
 RUN pip install --upgrade pip && pip install uv
 
 # # NOTE: this presumes we're building from the repo root
-COPY lib/ /app/lib/
-COPY /src /app/power-tariffs/
-COPY plugin_manifest.yaml /app/power-tariffs/plugin_manifest.yaml
-COPY alembic.ini /app/power-tariffs/alembic.ini
-COPY /static /app/power-tariffs/static
-COPY uv.lock /app/power-tariffs/uv.lock
+COPY /src /power-tariffs/src
+COPY plugin_manifest.yaml /power-tariffs/plugin_manifest.yaml
+COPY /static /power-tariffs/static
 
-WORKDIR /app/power-tariffs
+COPY pyproject.toml .
+COPY uv.lock .
+
+COPY alembic.ini .
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip install --system .

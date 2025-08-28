@@ -1,4 +1,4 @@
-from model import GridProviderSpec
+from src.model import GridProviderSpec
 from src.clients import elomraden
 from src.model import PowerTariffSpec
 from src.repositories.powtar_repository import PowerTariffRepository
