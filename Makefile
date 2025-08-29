@@ -55,6 +55,7 @@ help: ## Show this help message
 	@echo ""
 	@echo "Deployment:"
 	@echo "  make push-staging-image  - Push backend Docker image to eg-sandbox-registry staging ECR"
+	@echo '  promote-staging-to-sandbox-image Promote backend Docker image from sandbox to prod (provide TAG: make promote-staging-to-sandbox-image TAG=exampletag)'
 
 # Docker Compose Commands
 .PHONY: up
@@ -205,3 +206,7 @@ fresh: ## Stop everything, clean volumes, and start fresh (WARNING: Deletes all 
 .PHONY: push-staging-image
 push-staging-image:
 	@bin/push-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs
+
+.PHONY: promote-staging-to-sandbox-image
+promote-staging-to-sandbox-image: ## Promote backend Docker image from staging to sandbox (provide TAG: make promote-staging-to-sandbox-image TAG=exampletag)
+	@bin/promote-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-sandbox-registry/power-tariffs $(TAG)
