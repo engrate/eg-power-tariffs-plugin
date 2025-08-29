@@ -12,7 +12,7 @@ logger = log.get_logger(__name__)
 router = APIRouter(
     tags=["Power Tariffs API"],
     include_in_schema=True,
-    prefix="/plugins/power-tariffs"
+    prefix="/power-tariffs"
 )
 
 PowerTariffSvc = Annotated[PowerTariffService, Depends(lambda: PowerTariffService(repository=PowerTariffRepository()))]
