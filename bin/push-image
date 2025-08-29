@@ -10,11 +10,11 @@ tags=$(git tag --points-at HEAD | sed 's/[^a-zA-Z0-9]/-/g')
 
 diff=$(git status --short --untracked-files=normal --)
 
-#if [ "$diff" != "" ]; then
-#  printf '\033[1;31mERROR: You have uncommitted changes - refusing to push:\033[0m\n'
-#  echo "$diff"
-#  exit 1
-#fi
+if [ "$diff" != "" ]; then
+  printf '\033[1;31mERROR: You have uncommitted changes - refusing to push:\033[0m\n'
+  echo "$diff"
+  exit 1
+fi
 
 docker buildx inspect eg-builder >/dev/null 2>&1 || docker buildx create --name eg-builder --bootstrap
 

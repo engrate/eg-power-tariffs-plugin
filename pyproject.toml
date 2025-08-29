@@ -11,7 +11,7 @@ dependencies = [
     "alembic[tz] ~= 1.13.3",
     "asyncpg ~= 0.29.0",
     "greenlet ~= 3.0.0",
-    "engrate-sdk ~= 0.0.20",
+    "engrate-sdk ~= 0.0.21",
     "engrate-sdk",
 ]
 

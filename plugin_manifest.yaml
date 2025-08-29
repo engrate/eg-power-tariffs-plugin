@@ -15,7 +15,6 @@ plugin_metadata:
   fav_icon: ""
   image: ""
   port: "3011"
-  api_version: "v1"
   flavors:
     - "external-api"
   traits:
