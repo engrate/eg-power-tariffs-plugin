@@ -34,8 +34,8 @@ class PowerTariffRepository:
     async def list_operators(self, session:AsyncSession) -> list[GridOperatorSpec]:
         """Lists all providers."""
         result = await session.execute(select(GridOperator))
-        providers = result.scalars().all()
-        return [provider.as_spec() for provider in providers]
+        operators = result.scalars().all()
+        return [PowerTariffRepository.operator_as_spec(op) for op in operators]
 
     @with_session
     async def list_power_tariffs(self, session: AsyncSession) -> list[PowerTariffSpec]:

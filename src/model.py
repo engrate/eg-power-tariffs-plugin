@@ -10,8 +10,6 @@ class BuildingType(str, Enum):
     HOUSE = "house"
     ALL = "all"
 
-
-
 class TimeIntervalSpec(BaseModel):
     """Time interval for tariff rates. Multiplier is necessary given companies might have different rates per interval"""
     from_time: str = Field(..., alias="from")

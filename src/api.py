@@ -101,7 +101,7 @@ async def load_grid_operators():
 
         reader = csv.reader(file)
         for row in reader:
-            if len(row) < 7:
+            if len(row) < 6:
                 logger.warning(f"Skipping malformed row: {row}")
                 continue
 

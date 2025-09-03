@@ -1,177 +1,176 @@
-Status,Aktör,SvK Id,Ediel Id,EIC,Roll,Adress
-Godkänd,Övik Energi Nät AB,182,45700,46X000000000342M,Nätägare,"Box 11, 891 21 ÖRNSKÖLDSVIK"
-Godkänd,Övertorneå Energi AB,527,52700,,Nätägare, ESP,"Älvvägen 13, 957 31 Övertorneå"
-Godkänd,Östra Kinds Elnät AB,057,45500,46X000000000244M,Nätägare,"Box 6004, 51406 DALSTORP"
-Godkänd,Österlens Kraft Elnät AB,121,32200,46X000000000243O,Nätägare,"Testgatan 3, 27236 SIMRISHAMN"
-Under test,Öresundskraft Elnät AB,096,40400,46X000000000242Q,Nätägare,"Box 642, 25106 HELSINGBORG"
-Godkänd,Åskälen Vindkraft Elnät AB,628,12800,46X000000000341O,Nätägare,"c/o Vasa Vind AB, Garvis Carlssonsg 5, 11tr, 169 51 Solna"
-Godkänd,Åsele Elnät AB,715,71500,46X000000000340Q,Nätägare,"Centralgatan 31, 919 31 Åsele"
-Godkänd,Årsunda Kraft o Belysningsf,290,46600,,Nätägare,"Hedkarbyvagen 22, 81022 ÅRSUNDA"
-Godkänd,Ålem Energi Elnät AB,205,44900,46X000000000339B,Nätägare, ESP,"Råsnäs 103, 38052 Timmernabben"
-Godkänd,Ystad Energi Elnät AB,141,40800,46X000000000241S,Nätägare,"Fridhemsgatan 24, 27145 YSTAD"
-Godkänd,Växjö Energi Elnät AB,181,39200,46X000000000338D,Nätägare,"Kvarnvägen 35, 35241 VÄXJÖ"
-Godkänd,Västra Orusts Energitjänst ek för,061,39100,,Nätägare,"Glimsåsvägen 3, 474 32 ELLÖS"
-Godkänd,Västerviks Kraft Elnät AB,139,38800,46X000000000337F,Nätägare,"Box 25, 59321 VÄSTERVIK"
-Godkänd,Västerbergslagens Elnät AB,024,38700,46X000000000240U,Nätägare,"Box 860, 77128 LUDVIKA"
-Godkänd,Värnamo Elnät AB,137,38600,46X000000000336H,Nätägare,"Box 2268, 33102 VÄRNAMO"
-Godkänd,VänerEnergi AB,073,27400,,Nätägare, ESP,"Box 102, 54221 MARIESTAD"
-Godkänd,Vindpark Vänern Drift AB,VPV,65800,46X000000000335J,Nätägare,"c/o Ekologisk Energi Elfred AB, Glittne 2, 682 93 Nordmarkshyttan"
-Godkänd,Vimmerby Energi Nät AB,792,37920,46X000000000334L,Nätägare,"Förrådsgatan 2, 598 40 VIMMERBY"
-Under test,Vattenfall Kraftgården AB,VIN,16405,46X000000000333N,Nätägare,"Vattenkraft, 84073 BISPGÅRDEN"
-Godkänd,Vattenfall Eldistribution AB,040,16400,46X0000000002102,Nätägare, Ombud, ESP,", 169 92 STOCKHOLM"
-Godkänd,Varbergsortens Elnät AB,177,36900,46X000000000239F,Nätägare, ESP,"Syllingevägen 17, 43020 VEDDIGE"
-Godkänd,Varberg Energi Elnät AB,176,36800,46X000000000238H,Nätägare, ESP,"Box 1043, 43213 VARBERG"
-Godkänd,Vara Energi ek för,204,41800,,Nätägare,"Box 51, 53421 VARA"
-Godkänd,Vallebygdens Energi ek för,203,36500,,Nätägare,"Skaravägen 18, 53272 AXVALL"
-Godkänd,Vaggeryds Elverk,201,36400,,Nätägare,"Box 173, 56724 VAGGERYD"
-Godkänd,Upplands Energi ek för,192,17800,,Nätägare,"Ramsjövägen 46, 74363 BJÖRKLINGE"
-Godkänd,Umeå Energi Elnät AB,306,14300,46X000000000332P,Nätägare,"Box 224, 90105 UMEÅ"
-Godkänd,Ulricehamns Energi Elnät AB,263,36100,46X000000000237J,Nätägare,"Box 123, 52323 Ulricehamn"
-Godkänd,Uddevalla Energi Elnät AB,360,36010,46X000000000331R,Nätägare,"Strömberget, 45181 Uddevalla"
-Godkänd,Töre Energi ek för,175,35800,,Nätägare, ESP,"Hantverksvägen 14, 95040 TÖRE"
-Godkänd,Trollhättan Energi Elnät AB,508,50800,46X000000000330T,Nätägare,"Box 933, 46129 TROLLHÄTTAN"
-Godkänd,Trelleborg Elnät AB,262,35400,46X000000000329E,Nätägare, ESP,"c/o Trelleborg Kommun, 231 83 TRELLEBORG"
-Godkänd,Tranås Energi Elnät AB,352,35320,46X000000000328G,Nätägare, ESP,"Box 386, 573 24 TRANÅS"
-Godkänd,Tidaholm Elnät AB,662,66200,46X000000000327I,Nätägare, ESP,"Box 63, 52222 Tidaholm"
-Godkänd,Tibro Elnät AB,516,51600,,Nätägare,"Fabriksgatan 10, 54350 Tibro"
-Godkänd,Telge Elnät AB,032,34800,46X000000000236L,Nätägare,"Box 633, 15127 SÖDERTÄLJE"
-Godkänd,Tekniska verken Linköping Nät AB,105,11900,46X000000000326K,Nätägare,"Box 1500, 58115 LINKÖPING"
-Godkänd,Tekniska verken Katrineholm Nät AB,519,51900,46X000000000325M,Nätägare,"Djulögatan 17, 641 21 Katrineholm"
-Godkänd,Sörbylunds Elnät HB,514,51400,46X000000000324O,Nätägare,"Sörbylunds Kraftstation, 549 94 Skövde"
-Godkänd,Sölvesborgs Elnät AB,130,34700,46X000000000235N,Nätägare,", 29480 SÖLVESBORG"
-Godkänd,Södra Hallands Kraft ek för,129,34600,,Nätägare,"Box 63, 31221 LAHOLM"
-Godkänd,Söderhamn Elnät AB,128,34500,46X000000000323Q,Nätägare,"Stabbläggargatan 11, 82637 SÖDERHAMN"
-Under test,Systemstøtte för Ediel,,91100,,Nätägare, Leverantör, Systemleverantör, Energitjänsteföretag,"Nydalen Alle 33, N-0484 Oslo"
-Godkänd,Swedavia AB,634,66340,46X000000000322S,Nätägare,", 190 45 Stockholm-Arlanda"
-Godkänd,Svenska kraftnät,SVK,10000,10X1001A1001A418,Nätägare, Leverantör, Balansansvarig part (BRP), Systemleverantör,"Box 1200, 172 24 Sundbyberg"
-Godkänd,Sundsvall Elnät AB,126,11800,46X000000000321U,Nätägare,", 851 85 SUNDSVALL"
-Godkänd,Sturefors Eldistribution AB,272,47000,46X000000000320W,Nätägare,"Sturefors gård, kontoret, 589 64 STUREFORS"
-Godkänd,Stensjön Kraft AB,015,15800,46X000000000319H,Nätägare,"Box 33, 82010 ARBRÅ"
-Godkänd,Staffanstorps Energi AB,260,33800,,Nätägare,"Box 74, 24521 STAFFANSTORP"
-Godkänd,Sollentuna Elnät AB,171,33500,46X000000000234P,Nätägare, Ombud,"Box 972, 19129 SOLLENTUNA"
-Godkänd,Smedjebacken Energi Nät AB,259,33400,46X000000000318J,Nätägare,"SN0001, Box 113, 777 34 SMEDJEBACKEN"
-Godkänd,Skövde Energi Elnät AB,423,42300,46X000000000317L,Nätägare,"Box 128, 541 23 Skövde"
-Godkänd,Skånska Energi Nät AB,123,33000,46X000000000316N,Nätägare, ESP,"Box 83, 24722 SÖDRA SANDBY"
-Godkänd,Skyllberg Elnät AB,288,32900,46X000000000233R,Nätägare,"Skyllbergsvägen 11, 694 99 Skyllberg"
-Godkänd,Skurups Elverk AB,258,32800,46X000000000315P,Nätägare, ESP,"Mårtensgatan 3, 27435 SKURUP"
-Godkänd,Skellefteå Kraft Elnät AB,013,10600,46X000000000314R,Nätägare,"Box 802, 93180 SKELLEFTEÅ"
-Godkänd,Skara Elnät AB,170,32500,46X000000000232T,Nätägare, ESP,", 53288 SKARA"
-Godkänd,Sjöbo Elnät AB,122,32400,46X000000000313T,Nätägare,"Ommavägen 26, 275 39 SJÖBO"
-Godkänd,Sjogerstads Elektriska Distributionsförening,293,32300,,Nätägare, ESP,"Box 66, 54122 SKÖVDE"
-Godkänd,Sjisjka Nät AB,523,52300,46X000000000312V,Nätägare,"c/o O2, Box 2299, 10317 Stockholm"
-Godkänd,Sidensjö Vindkraft Elnät AB,528,52800,46X000000000311X,Nätägare,"c/o Nordisk Vindkraft AB, Lilla Bommen 1, 411 04 Göteborg"
-Godkänd,SEVAB Nät AB,197,41700,46X000000000310Z,Nätägare,"Vältstigen 1, 64541 STRÄNGNÄS"
-Godkänd,Sandviken Energi Elnät AB,119,31900,46X000000000309K,Nätägare,"Box 91, 81121 SANDVIKEN"
-Godkänd,Sandhult-Sandareds Elnät AB,287,31800,46X000000000308M,Nätägare,"Hagavägen 11, 51840 SJÖMARKEN"
-Godkänd,Sala-Heby Energi Elnät AB,183,31600,46X000000000307O,Nätägare,"Box 34, 73321 SALA"
-Godkänd,Rödeby Elverk ek för,286,31500,,Nätägare, ESP,"Karlskronavägen 38, 373 43 Rödeby"
-Godkänd,Ronneby Miljöteknik Elnät AB,118,31100,46X000000000231V,Nätägare,"Stadshuset, 37280 RONNEBY"
-Godkänd,Pite Energi Elnät AB,256,30800,46X000000000230X,Nätägare,"Box 738, 94128 PITEÅ"
-Godkänd,Partille Energi Nät AB,296,51500,46X000000000306Q,Nätägare,"Box 53, 40120 Göteborg"
-Godkänd,Oxelö Energi AB,255,30600,,Nätägare,"Höjdgatan 24, 61381 OXELÖSUND"
-Godkänd,Ovako Sweden AB,285,44600,46X000000000305S,Nätägare,", 813 82 HOFORS"
-Godkänd,Oskarshamn Energi Nät AB,116,30500,46X000000000304U,Nätägare,"Box 564, 57226 OSKARSHAMN"
-Godkänd,Olseröds Elektriska Distributionsförening,060,30300,,Nätägare,"Sockenvägen 127, 29795 DEGEBERGA"
-Godkänd,Olofströms Kraft Nät AB,031,30200,46X000000000303W,Nätägare,"Box 303, 29324 OLOFSTRÖM"
-Under test,Nätkraft Borås Infra AB,086,11100,46X000000000229I,Nätägare,"Box 1714, 50117 BORÅS"
-Godkänd,Nässjö Affärsverk Elnät AB,309,10300,46X000000000302Y,Nätägare,"Tullgatan 2, 57180 NÄSSJÖ"
-Godkänd,Näckåns Elnät AB,252,29800,46X0000000003001,Nätägare, ESP,"Näckån 4, 68060 SYSSLEBÄCK"
-Godkänd,Nybro Elnät AB,115,29500,46X000000000299Y,Nätägare,"Dunderbergsgatan 2, 38280 NYBRO"
-Godkänd,Nossebroortens Energi ek för,284,29300,46X000000000371F,Nätägare, ESP,"Liljegatan 15, 46530 NOSSEBRO"
-Godkänd,Norrtälje Energi AB,114,29000,46X000000000370H,Nätägare, Ombud,"Box 216, 76123 NORRTÄLJE"
-Godkänd,Njudung Vetlanda Elnät AB,266,37700,46X0000000002971,Nätägare,"Box 154, 57422 VETLANDA"
-Godkänd,Njudung Sävsjö Elnät AB,127,34400,46X000000000228K,Nätägare,"Box 172, 57624 SÄVSJÖ"
-Godkänd,Nacka Energi AB,074,28500,46X0000000003692,Nätägare,"Box 753, 13124 NACKA"
-Godkänd,Mölndal Energi Nät AB,112,28300,46X0000000002963,Nätägare,"Box 34, 43121 MÖLNDAL"
-Under test,Mälarenergi Elnät AB,393,39300,46X0000000002955,Nätägare,"Box 924, 73129 KÖPING"
-Under test,Mälarenergi AB,VEV,40100,46X000000000132X,Nätägare, Leverantör, Balansansvarig part (BRP), Leverantör av balanstjänster (BSP),"Box 14, 72103 VÄSTERÅS"
-Godkänd,Mjölby Kraftnät AB,110,27700,46X0000000002947,Nätägare,"Box 510, 59529 MJÖLBY"
-Godkänd,Mellersta Skånes Kraft ek för,247,27600,46X0000000003684,Nätägare, ESP,"Landsvägen 77, 24372 TJÖRNARP"
-Godkänd,Markbygden Net Väst AB,529,52900,46X0000000002939,Nätägare,"Jägershillsgatan 18, 213 75 Malmö"
-Godkänd,Markbygden Net AB,693,15200,46X000000000292B,Nätägare,"c/o BGC, BGC-id CDP1014, 106 43 Stockholm"
-Godkänd,Marhult Nät AB,350,13500,46X000000000291D,Nätägare,"c/o OX2, Box 2299, 103 17 Stockholm"
-Godkänd,Malung-Sälens Elnät AB,246,27300,46X000000000290F,Nätägare,"Box 4, 78221 MALUNG"
-Godkänd,Luleå Energi Elnät AB,LUL,11600,46X0000000002890,Nätägare, ESP,"Box 50100, 97323 LULEÅ"
-Godkänd,LKAB Nät AB,294,13800,46X0000000002882,Nätägare,"FK10, 98186 KIRUNA"
-Godkänd,Ljusdal Elnät AB,210,26500,46X0000000002874,Nätägare,"Björkhamrevägen 2A, 82735 LJUSDAL"
-Godkänd,Ljungby Energinät AB,106,26400,46X0000000002866,Nätägare,"Box 262, 34125 LJUNGBY"
-Godkänd,Linde Energi Elnät AB,243,26300,46X000000000227M,Nätägare,"Box 77, 71122 LINDESBERG"
-Godkänd,Lidköping Elnät AB,071,26200,46X000000000226O,Nätägare,"Skogvaktarevägen 7C, 531 53 LIDKÖPING"
-Godkänd,LEVA Nät AB,072,27200,46X000000000225Q,Nätägare,"Box 36, 45321 LYSEKIL"
-Godkänd,Lerum Nät AB,055,25900,46X000000000224S,Nätägare,"Elvägen 7, 44361 STENKULLEN"
-Godkänd,Lehtirova Nät AB,173,71730,46X0000000002858,Nätägare,"Box 2299, 103 17 Stockholm"
-Godkänd,Landskrona Energi AB,188,25600,46X0000000003676,Nätägare,"Box 226, 261 23 Landskrona"
-Godkänd,Kvänumbygdens Energi ek för,162,25500,46X000000000363E,Nätägare, ESP,"Skaragatan 23, 53530 KVÄNUM"
-Godkänd,Kvarnforsen Nät AB,590,65900,46X000000000284A,Nätägare,"c/o O2, Box 2299, 103 17 Stockholm"
-Godkänd,Kungälv Energi AB,241,25200,46X000000000362G,Nätägare,"Postbox 515, 442 15 KUNGÄLV"
-Godkänd,Kristinehamns Elnät AB,070,24900,46X000000000283C,Nätägare,"Varnumsleden 1, 68193 KRISTINEHAMN"
-Godkänd,Kraftringen Nät AB,239,24700,46X000000000282E,Nätägare, ESP,"Box 25, 221 00 Lund"
-Godkänd,Karskruv Nät AB,740,47400,46X000000000281G,Nätägare,"c/o OX2, Box 2299, 103 17 Stockholm"
-Godkänd,Karlstads Elnät AB,161,24300,46X000000000280I,Nätägare,"Box 5050, 650 05 KARLSTAD"
-Godkänd,Karlskoga Elnät AB,238,24100,46X0000000002793,Nätägare,"Box 42, 69121 KARLSKOGA"
-Godkänd,Karlshamn Elnät AB,M04,24000,46X000000000223U,Nätägare,"Box 174, 37423 KARLSHAMN"
-Godkänd,Karlsborgs Elnät AB,237,23900,46X000000000222W,Nätägare,"Västra vägen 41, 54631 KARLSBORG"
-Godkänd,Kalmar Energi Elnät AB,101,23800,46X0000000002785,Nätägare,"Box 822, 39239 KALMAR"
-Godkänd,Jönköping Energi Nät AB,158,23600,46X0000000002777,Nätägare,"Box 5150, 55005 JÖNKÖPING"
-Godkänd,Jämtkraft Elnät AB,008,42900,46X0000000002769,Nätägare,"Box 394, 83125 ÖSTERSUND"
-Godkänd,Jukkasjärvi Sockens Belysningsförening, JBF,157,23300,46X000000000361I,Nätägare, Ombud, ESP,"Kauppinen 181, 981 92 KIRUNA"
-Godkänd,Höganäs Energi Elnät AB,099,22900,46X000000000221Y,Nätägare,"Verkstadsgatan 13C, 26382 HÖGANÄS"
-Godkänd,Härryda Energi AB,052,22700,46X000000000360K,Nätägare,", 435 80 Mölnlycke"
-Godkänd,Härnösand Elnät AB,155,22600,46X000000000275B,Nätägare,"Box 304, 87126 HÄRNÖSAND"
-Godkänd,Härjeåns Nät AB,027,43600,46X000000000274D,Nätägare,"Box 72, 84121 ÅNGE"
-Under test,Holmen Energi Elnät AB,649,64920,46X000000000273F,Nätägare,"c/o Holmen Energi, 891 80 Örnsköldsvik"
-Godkänd,Hjärtums Elförening ek för,279,21800,46X0000000003595,Nätägare,"Sannersby 115, 46392 LILLA EDET"
-Godkänd,Hjo Elnät AB,050,21700,46X000000000219L,Nätägare,"Box 66, 54421 HJO"
-Godkänd,Herrljunga Elnät AB,049,21600,46X000000000218N,Nätägare,"Mariedalsgatan 3, 52431 HERRLJUNGA"
-Godkänd,Hedemora Energi AB,095,21400,46X0000000003587,Nätägare,"Ivarshyttevägen 2, 77633 HEDEMORA"
-Godkänd,Havsnäs Vindkraft Elnät AB,520,52000,46X000000000271J,Nätägare,"c/o Vasa Vind AB, Garvis Carlssons Gata 5, 16941 Solna"
-Godkänd,Halmstads Energi och Miljö Nät AB,094,21200,46X000000000270L,Nätägare,"Box 31, 30102 HALMSTAD"
-Godkänd,Hallstaviks Elverk ek för,193,21100,46X0000000003579,Nätägare,"Lundåsvägen 6, 76330 HALLSTAVIK"
-Godkänd,Habo Energi Kraft AB,233,46300,46X0000000002696,Nätägare,"Box 202, 56624 HABO"
-Godkänd,Götene Elförening ek för,068,20600,46X000000000356B,Nätägare,"Box 81, 53321 GÖTENE"
-Godkänd,Göteborg Energi Nät AB,092,20500,46X0000000002688,Nätägare, ESP,"Box 53, 40120 GÖTEBORG"
-Godkänd,Gävle Energi Elnät AB,030,20400,46X000000000217P,Nätägare,"Box 783, 80129 GÄVLE"
-Godkänd,Grästorp Energi ek för,291,20300,46X000000000355D,Nätägare, ESP,"Plogvägen 5, 467 30 GRÄSTORP"
-Godkänd,Gotlands Elnät AB,220,11220,46X000000000267A,Nätägare,"Box 1095, 621 21 VISBY"
-Godkänd,Gislaved Energi Elnät AB,048,19900,46X000000000266C,Nätägare, ESP,"Box 181, 33224 GISLAVED"
-Godkänd,Gabrielsberget Net AB,522,52200,46X000000000265E,Nätägare,"Norra Obbolavägen 115, 904 22 UMEÅ"
-Under test,Fortum Sverige AB,BKB,40900,46X000000000018V,Nätägare, Leverantör, Balansansvarig part (BRP), ESP, Leverantör av balanstjänster (BSP),"Rättarvägen 3, 169 68 SOLNA"
-Godkänd,Filipstad Energinät AB,067,39900,46X000000000264G,Nätägare, ESP,"Box 150, 68224 FILIPSTAD"
-Godkänd,Falu Elnät AB,089,19200,46X000000000263I,Nätägare, ESP,"Box 213, 79125 FALUN"
-Godkänd,Falkenberg Energi Elnät AB,152,39700,46X000000000216R,Nätägare,", 31180 FALKENBERG"
-Godkänd,Falbygdens Energi Nät AB,229,39600,46X000000000262K,Nätägare, ESP,"Box 684, 52121 FALKÖPING"
-Godkänd,Eskilstuna Energi & Miljö Elnät AB,029,19800,46X000000000261M,Nätägare, ESP,"Kungsgatan 86, 63186 ESKILSTUNA"
-Godkänd,Emmaboda Elnät AB,227,19500,46X000000000260O,Nätägare,"Box 53, 36121 EMMABODA"
-Godkänd,Ellevio AB,006,14900,46X000000000209O,Nätägare,", 11533 STOCKHOLM"
-Godkänd,Eksjö Elnät AB,151,19400,46X0000000002599,Nätägare, ESP,"Telegatan 8, 57580 EKSJÖ"
-Godkänd,E.ON Energidistribution AB,017,16000,46X000000000019T,Nätägare, ESP,"Carl Gustafs väg 1, 20509 MALMÖ"
-Inte godkänd,Dummy Systemleverantör,,91999,,Nätägare, Leverantör, Balansansvarig part (BRP), Systemleverantör,"Box 1200, 172 24 SUNDBYBERG"
-Godkänd,Dragaliden Net AB,MBN,52100,46X000000000258B,Nätägare,"Umestan Företagspark, 903 47 Umeå"
-Godkänd,Degerfors Elnät AB,066,18900,46X000000000154N,Nätägare,"Box 1, 69321 DEGERFORS"
-Godkänd,Dala Energi Elnät AB,103,25800,46X000000000257D,Nätägare, Ombud, ESP,"Box 254, 79326 LEKSAND"
-Godkänd,Carlfors Bruk KB,206,45800,46X000000000354F,Nätägare,"Box 2077, 56102 HUSKVARNA"
-Godkänd,C4 Elnät AB,087,24800,46X000000000256F,Nätägare,"Box 2105, 29102 KRISTIANSTAD"
-Godkänd,Brännliden Nät AB,395,15700,46X000000000255H,Nätägare,"c/o OX2, Box 2299, 103 17 Stockholm"
-Godkänd,Bromölla Energi och Vatten AB,225,18800,46X000000000353H,Nätägare,"Storgatan 40, 29531 BROMÖLLA"
-Godkänd,Brobacken Nät AB,593,65930,46X000000000254J,Nätägare,"Box 2299, 103 17 Stockholm"
-Godkänd,Brittedals Elnät ek för,275,18700,46X000000000253L,Nätägare,"Östra Järnvägsgatan 15, 28023 HÄSTVEDA"
-Godkänd,Borlänge Energi Elnät, AB,184,18400,46X000000000252N,Nätägare, ESP,"Box 834, 78128 BORLÄNGE"
-Godkänd,Borgholm Energi Elnät AB,223,18200,46X000000000251P,Nätägare,"Box 55, 38721 BORGHOLM"
-Godkänd,Boo Energi ek för,222,18100,46X000000000353H,Nätägare,"Box 103, 13223 SALTSJÖ-BOO"
-Godkänd,Bodens Energi Nät AB,085,17900,46X000000000250R,Nätägare, ESP,"Slipvägen 7, 96138 BODEN"
-Godkänd,Boda Nät ek för,383,18300,46X000000000351L,Nätägare,"Bruksgatan 1, 54430 Hjo"
-Godkänd,Blåsjön Nät AB,003,14500,46X000000000249C,Nätägare,"C/O Infram Sweden AB, 111 34 STOCKHOLM"
-Godkänd,Bliekevare Nät AB,517,51700,46X000000000248E,Nätägare,"c/o Rabbalshede Kraft AB; Marknadsvägen 1, 45755 Rabbalshede"
-Godkänd,Bjärke Energi ek för,277,17700,46X000000000350N,Nätägare,"Energigatan 3, 441 74 SOLLEBRUNN"
-Godkänd,Bjäre Kraft Elnät AB,276,17600,46X000000000215T,Nätägare, Ombud, ESP,"Box 1054, 26921 BÅSTAD"
-Godkänd,Billerud Skog & Industri AB,053,44300,46X0000000003498,Nätägare,", 80181 GÄVLE"
-Godkänd,Bergs Tingslags Elektriska AB,043,17400,46X000000000348A,Nätägare,"Olstavägen 26, 845 51 Åsarna"
-Godkänd,Bengtsfors Energi Nät AB,039,17300,46X000000000247G,Nätägare, ESP,"Industrigatan 10, 66631 BENGTSFORS"
-Inte godkänd,Baltic Cable AB,513,51300,14XBALTICCABLE-L,Nätägare,"Gustav Adolfs Torg 47, 21139 Malmö"
-Godkänd,Arvika Elnät AB,148,17000,46X000000000214V,Nätägare,"Box 945, 67129 ARVIKA"
-Godkänd,Arise Elnät AB,518,51800,46X0000000003668,Nätägare,"Linjegatan 7, 302 50 HALMSTAD"
-Godkänd,Alvesta Elnät AB,147,16900,46X000000000246I,Nätägare,"c/o Alvesta Kommun, 342 80 ALVESTA"
-Godkänd,Almnäs Elnät AB,037,16800,46X000000000213X,Nätägare,", 54494 HJO"
-Godkänd,Alingsås Energi Elnät AB,084,16700,46X000000000212Z,Nätägare,"Södra Strömgatan 6, 44181 ALINGSÅS"
-Godkänd,Ale El Elnät AB,146,16600,46X0000000002110,Nätägare,"Box 3004, 44914 ALAFORS"
-Godkänd,Affärsverken Elnät i Karlskrona AB,160,24200,46X000000000245K,Nätägare,"Box 530, 37123 KARLSKRONA"
+Godkänd,Övik Energi Nät AB,182,45700,46X000000000342M,Nätägare
+Godkänd,Övertorneå Energi AB,527,52700,,Nätägare
+Godkänd,Östra Kinds Elnät AB,57,45500,46X000000000244M,Nätägare
+Godkänd,Österlens Kraft Elnät AB,121,32200,46X000000000243O,Nätägare
+Under test,Öresundskraft Elnät AB,96,40400,46X000000000242Q,Nätägare
+Godkänd,Åskälen Vindkraft Elnät AB,628,12800,46X000000000341O,Nätägare
+Godkänd,Åsele Elnät AB,715,71500,46X000000000340Q,Nätägare
+Godkänd,Årsunda Kraft o Belysningsf,290,46600,,Nätägare
+Godkänd,Ålem Energi Elnät AB,205,44900,46X000000000339B,Nätägare
+Godkänd,Ystad Energi Elnät AB,141,40800,46X000000000241S,Nätägare
+Godkänd,Växjö Energi Elnät AB,181,39200,46X000000000338D,Nätägare
+Godkänd,Västra Orusts Energitjänst ek för,61,39100,,Nätägare
+Godkänd,Västerviks Kraft Elnät AB,139,38800,46X000000000337F,Nätägare
+Godkänd,Västerbergslagens Elnät AB,24,38700,46X000000000240U,Nätägare
+Godkänd,Värnamo Elnät AB,137,38600,46X000000000336H,Nätägare
+Godkänd,VänerEnergi AB,73,27400,,Nätägare
+Godkänd,Vindpark Vänern Drift AB,VPV,65800,46X000000000335J,Nätägare
+Godkänd,Vimmerby Energi Nät AB,792,37920,46X000000000334L,Nätägare
+Under test,Vattenfall Kraftgården AB,VIN,16405,46X000000000333N,Nätägare
+Godkänd,Vattenfall Eldistribution AB,40,16400,46X0000000002102,Nätägare
+Godkänd,Varbergsortens Elnät AB,177,36900,46X000000000239F,Nätägare
+Godkänd,Varberg Energi Elnät AB,176,36800,46X000000000238H,Nätägare
+Godkänd,Vara Energi ek för,204,41800,,Nätägare
+Godkänd,Vallebygdens Energi ek för,203,36500,,Nätägare
+Godkänd,Vaggeryds Elverk,201,36400,,Nätägare
+Godkänd,Upplands Energi ek för,192,17800,,Nätägare
+Godkänd,Umeå Energi Elnät AB,306,14300,46X000000000332P,Nätägare
+Godkänd,Ulricehamns Energi Elnät AB,263,36100,46X000000000237J,Nätägare
+Godkänd,Uddevalla Energi Elnät AB,360,36010,46X000000000331R,Nätägare
+Godkänd,Töre Energi ek för,175,35800,,Nätägare
+Godkänd,Trollhättan Energi Elnät AB,508,50800,46X000000000330T,Nätägare
+Godkänd,Trelleborg Elnät AB,262,35400,46X000000000329E,Nätägare
+Godkänd,Tranås Energi Elnät AB,352,35320,46X000000000328G,Nätägare
+Godkänd,Tidaholm Elnät AB,662,66200,46X000000000327I,Nätägare
+Godkänd,Tibro Elnät AB,516,51600,,Nätägare
+Godkänd,Telge Elnät AB,32,34800,46X000000000236L,Nätägare
+Godkänd,Tekniska verken Linköping Nät AB,105,11900,46X000000000326K,Nätägare
+Godkänd,Tekniska verken Katrineholm Nät AB,519,51900,46X000000000325M,Nätägare
+Godkänd,Sörbylunds Elnät HB,514,51400,46X000000000324O,Nätägare
+Godkänd,Sölvesborgs Elnät AB,130,34700,46X000000000235N,Nätägare
+Godkänd,Södra Hallands Kraft ek för,129,34600,,Nätägare
+Godkänd,Söderhamn Elnät AB,128,34500,46X000000000323Q,Nätägare
+Under test,Systemstøtte för Ediel,,91100,,Nätägare
+Godkänd,Swedavia AB,634,66340,46X000000000322S,Nätägare
+Godkänd,Svenska kraftnät,SVK,10000,10X1001A1001A418,Nätägare
+Godkänd,Sundsvall Elnät AB,126,11800,46X000000000321U,Nätägare
+Godkänd,Sturefors Eldistribution AB,272,47000,46X000000000320W,Nätägare
+Godkänd,Stensjön Kraft AB,15,15800,46X000000000319H,Nätägare
+Godkänd,Staffanstorps Energi AB,260,33800,,Nätägare
+Godkänd,Sollentuna Elnät AB,171,33500,46X000000000234P,Nätägare
+Godkänd,Smedjebacken Energi Nät AB,259,33400,46X000000000318J,Nätägare
+Godkänd,Skövde Energi Elnät AB,423,42300,46X000000000317L,Nätägare
+Godkänd,Skånska Energi Nät AB,123,33000,46X000000000316N,Nätägare
+Godkänd,Skyllberg Elnät AB,288,32900,46X000000000233R,Nätägare
+Godkänd,Skurups Elverk AB,258,32800,46X000000000315P,Nätägare
+Godkänd,Skellefteå Kraft Elnät AB,13,10600,46X000000000314R,Nätägare
+Godkänd,Skara Elnät AB,170,32500,46X000000000232T,Nätägare
+Godkänd,Sjöbo Elnät AB,122,32400,46X000000000313T,Nätägare
+Godkänd,Sjogerstads Elektriska Distributionsförening,293,32300,,Nätägare
+Godkänd,Sjisjka Nät AB,523,52300,46X000000000312V,Nätägare
+Godkänd,Sidensjö Vindkraft Elnät AB,528,52800,46X000000000311X,Nätägare
+Godkänd,SEVAB Nät AB,197,41700,46X000000000310Z,Nätägare
+Godkänd,Sandviken Energi Elnät AB,119,31900,46X000000000309K,Nätägare
+Godkänd,Sandhult-Sandareds Elnät AB,287,31800,46X000000000308M,Nätägare
+Godkänd,Sala-Heby Energi Elnät AB,183,31600,46X000000000307O,Nätägare
+Godkänd,Rödeby Elverk ek för,286,31500,,Nätägare
+Godkänd,Ronneby Miljöteknik Elnät AB,118,31100,46X000000000231V,Nätägare
+Godkänd,Pite Energi Elnät AB,256,30800,46X000000000230X,Nätägare
+Godkänd,Partille Energi Nät AB,296,51500,46X000000000306Q,Nätägare
+Godkänd,Oxelö Energi AB,255,30600,,Nätägare
+Godkänd,Ovako Sweden AB,285,44600,46X000000000305S,Nätägare
+Godkänd,Oskarshamn Energi Nät AB,116,30500,46X000000000304U,Nätägare
+Godkänd,Olseröds Elektriska Distributionsförening,60,30300,,Nätägare
+Godkänd,Olofströms Kraft Nät AB,31,30200,46X000000000303W,Nätägare
+Under test,Nätkraft Borås Infra AB,86,11100,46X000000000229I,Nätägare
+Godkänd,Nässjö Affärsverk Elnät AB,309,10300,46X000000000302Y,Nätägare
+Godkänd,Näckåns Elnät AB,252,29800,46X0000000003001,Nätägare
+Godkänd,Nybro Elnät AB,115,29500,46X000000000299Y,Nätägare
+Godkänd,Nossebroortens Energi ek för,284,29300,46X000000000371F,Nätägare
+Godkänd,Norrtälje Energi AB,114,29000,46X000000000370H,Nätägare
+Godkänd,Njudung Vetlanda Elnät AB,266,37700,46X0000000002971,Nätägare
+Godkänd,Njudung Sävsjö Elnät AB,127,34400,46X000000000228K,Nätägare
+Godkänd,Nacka Energi AB,74,28500,46X0000000003692,Nätägare
+Godkänd,Mölndal Energi Nät AB,112,28300,46X0000000002963,Nätägare
+Under test,Mälarenergi Elnät AB,393,39300,46X0000000002955,Nätägare
+Under test,Mälarenergi AB,VEV,40100,46X000000000132X,Nätägare
+Godkänd,Mjölby Kraftnät AB,110,27700,46X0000000002947,Nätägare
+Godkänd,Mellersta Skånes Kraft ek för,247,27600,46X0000000003684,Nätägare
+Godkänd,Markbygden Net Väst AB,529,52900,46X0000000002939,Nätägare
+Godkänd,Markbygden Net AB,693,15200,46X000000000292B,Nätägare
+Godkänd,Marhult Nät AB,350,13500,46X000000000291D,Nätägare
+Godkänd,Malung-Sälens Elnät AB,246,27300,46X000000000290F,Nätägare
+Godkänd,Luleå Energi Elnät AB,LUL,11600,46X0000000002890,Nätägare
+Godkänd,LKAB Nät AB,294,13800,46X0000000002882,Nätägare
+Godkänd,Ljusdal Elnät AB,210,26500,46X0000000002874,Nätägare
+Godkänd,Ljungby Energinät AB,106,26400,46X0000000002866,Nätägare
+Godkänd,Linde Energi Elnät AB,243,26300,46X000000000227M,Nätägare
+Godkänd,Lidköping Elnät AB,71,26200,46X000000000226O,Nätägare
+Godkänd,LEVA Nät AB,72,27200,46X000000000225Q,Nätägare
+Godkänd,Lerum Nät AB,55,25900,46X000000000224S,Nätägare
+Godkänd,Lehtirova Nät AB,173,71730,46X0000000002858,Nätägare
+Godkänd,Landskrona Energi AB,188,25600,46X0000000003676,Nätägare
+Godkänd,Kvänumbygdens Energi ek för,162,25500,46X000000000363E,Nätägare
+Godkänd,Kvarnforsen Nät AB,590,65900,46X000000000284A,Nätägare
+Godkänd,Kungälv Energi AB,241,25200,46X000000000362G,Nätägare
+Godkänd,Kristinehamns Elnät AB,70,24900,46X000000000283C,Nätägare
+Godkänd,Kraftringen Nät AB,239,24700,46X000000000282E,Nätägare
+Godkänd,Karskruv Nät AB,740,47400,46X000000000281G,Nätägare
+Godkänd,Karlstads Elnät AB,161,24300,46X000000000280I,Nätägare
+Godkänd,Karlskoga Elnät AB,238,24100,46X0000000002793,Nätägare
+Godkänd,Karlshamn Elnät AB,M04,24000,46X000000000223U,Nätägare
+Godkänd,Karlsborgs Elnät AB,237,23900,46X000000000222W,Nätägare
+Godkänd,Kalmar Energi Elnät AB,101,23800,46X0000000002785,Nätägare
+Godkänd,Jönköping Energi Nät AB,158,23600,46X0000000002777,Nätägare
+Godkänd,Jämtkraft Elnät AB,8,42900,46X0000000002769,Nätägare
+Godkänd,Jukkasjärvi Sockens Belysningsförening - JBF,157,23300,46X000000000361I,Nätägare
+Godkänd,Höganäs Energi Elnät AB,99,22900,46X000000000221Y,Nätägare
+Godkänd,Härryda Energi AB,52,22700,46X000000000360K,Nätägare
+Godkänd,Härnösand Elnät AB,155,22600,46X000000000275B,Nätägare
+Godkänd,Härjeåns Nät AB,27,43600,46X000000000274D,Nätägare
+Under test,Holmen Energi Elnät AB,649,64920,46X000000000273F,Nätägare
+Godkänd,Hjärtums Elförening ek för,279,21800,46X0000000003595,Nätägare
+Godkänd,Hjo Elnät AB,50,21700,46X000000000219L,Nätägare
+Godkänd,Herrljunga Elnät AB,49,21600,46X000000000218N,Nätägare
+Godkänd,Hedemora Energi AB,95,21400,46X0000000003587,Nätägare
+Godkänd,Havsnäs Vindkraft Elnät AB,520,52000,46X000000000271J,Nätägare
+Godkänd,Halmstads Energi och Miljö Nät AB,94,21200,46X000000000270L,Nätägare
+Godkänd,Hallstaviks Elverk ek för,193,21100,46X0000000003579,Nätägare
+Godkänd,Habo Energi Kraft AB,233,46300,46X0000000002696,Nätägare
+Godkänd,Götene Elförening ek för,68,20600,46X000000000356B,Nätägare
+Godkänd,Göteborg Energi Nät AB,92,20500,46X0000000002688,Nätägare
+Godkänd,Gävle Energi Elnät AB,30,20400,46X000000000217P,Nätägare
+Godkänd,Grästorp Energi ek för,291,20300,46X000000000355D,Nätägare
+Godkänd,Gotlands Elnät AB,220,11220,46X000000000267A,Nätägare
+Godkänd,Gislaved Energi Elnät AB,48,19900,46X000000000266C,Nätägare
+Godkänd,Gabrielsberget Net AB,522,52200,46X000000000265E,Nätägare
+Under test,Fortum Sverige AB,BKB,40900,46X000000000018V,Nätägare
+Godkänd,Filipstad Energinät AB,67,39900,46X000000000264G,Nätägare
+Godkänd,Falu Elnät AB,89,19200,46X000000000263I,Nätägare
+Godkänd,Falkenberg Energi Elnät AB,152,39700,46X000000000216R,Nätägare
+Godkänd,Falbygdens Energi Nät AB,229,39600,46X000000000262K,Nätägare
+Godkänd,Eskilstuna Energi & Miljö Elnät AB,29,19800,46X000000000261M,Nätägare
+Godkänd,Emmaboda Elnät AB,227,19500,46X000000000260O,Nätägare
+Godkänd,Ellevio AB,6,14900,46X000000000209O,Nätägare
+Godkänd,Eksjö Elnät AB,151,19400,46X0000000002599,Nätägare
+Godkänd,E.ON Energidistribution AB,17,16000,46X000000000019T,Nätägare
+Inte godkänd,Dummy Systemleverantör,,91999,,Nätägare
+Godkänd,Dragaliden Net AB,MBN,52100,46X000000000258B,Nätägare
+Godkänd,Degerfors Elnät AB,66,18900,46X000000000154N,Nätägare
+Godkänd,Dala Energi Elnät AB,103,25800,46X000000000257D,Nätägare
+Godkänd,Carlfors Bruk KB,206,45800,46X000000000354F,Nätägare
+Godkänd,C4 Elnät AB,87,24800,46X000000000256F,Nätägare
+Godkänd,Brännliden Nät AB,395,15700,46X000000000255H,Nätägare
+Godkänd,Bromölla Energi och Vatten AB,225,18800,46X000000000353H,Nätägare
+Godkänd,Brobacken Nät AB,593,65930,46X000000000254J,Nätägare
+Godkänd,Brittedals Elnät ek för,275,18700,46X000000000253L,Nätägare
+Godkänd,Borlänge Energi Elnät AB,184,18400,46X000000000252N,Nätägare
+Godkänd,Borgholm Energi Elnät AB,223,18200,46X000000000251P,Nätägare
+Godkänd,Boo Energi ek för,222,18100,46X000000000353H,Nätägare
+Godkänd,Bodens Energi Nät AB,85,17900,46X000000000250R,Nätägare
+Godkänd,Boda Nät ek för,383,18300,46X000000000351L,Nätägare
+Godkänd,Blåsjön Nät AB,3,14500,46X000000000249C,Nätägare
+Godkänd,Bliekevare Nät AB,517,51700,46X000000000248E,Nätägare
+Godkänd,Bjärke Energi ek för,277,17700,46X000000000350N,Nätägare
+Godkänd,Bjäre Kraft Elnät AB,276,17600,46X000000000215T,Nätägare
+Godkänd,Billerud Skog & Industri AB,53,44300,46X0000000003498,Nätägare
+Godkänd,Bergs Tingslags Elektriska AB,43,17400,46X000000000348A,Nätägare
+Godkänd,Bengtsfors Energi Nät AB,39,17300,46X000000000247G,Nätägare
+Inte godkänd,Baltic Cable AB,513,51300,14XBALTICCABLE-L,Nätägare
+Godkänd,Arvika Elnät AB,148,17000,46X000000000214V,Nätägare
+Godkänd,Arise Elnät AB,518,51800,46X0000000003668,Nätägare
+Godkänd,Alvesta Elnät AB,147,16900,46X000000000246I,Nätägare
+Godkänd,Almnäs Elnät AB,37,16800,46X000000000213X,Nätägare
+Godkänd,Alingsås Energi Elnät AB,84,16700,46X000000000212Z,Nätägare
+Godkänd,Ale El Elnät AB,146,16600,46X0000000002110,Nätägare
+Godkänd,Affärsverken Elnät i Karlskrona AB,160,24200,46X000000000245K,Nätägare

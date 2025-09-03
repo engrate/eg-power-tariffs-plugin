@@ -18,7 +18,7 @@ Vattenfall Eldistribution AB;Ångermanälven region;AMN;REGIONAL;SE2;SE
 Vattenfall Eldistribution AB;Ardala;ARD;DISTRIBUTION;SE3;SE
 Vattenfall Eldistribution AB;Årjäng;ANG;DISTRIBUTION;SE3;SE
 Mälarenergi AB;Aros;AOS;NONCON;SE3;SE
-Årsunda Kraft-o Belysningsförening Upa;Årsunda;ARS;DISTRIBUTION;SE3;SE
+Årsunda Kraft o Belysningsf;Årsunda;ARS;DISTRIBUTION;SE3;SE
 Vattenfall Eldistribution AB;Arvidsjaurbygden;AJB;DISTRIBUTION;SE1;SE
 Arvika Elnät AB;Arvika;ARV;DISTRIBUTION;SE3;SE
 Åsele Elnät AB;Åsele;ASL;DISTRIBUTION;SE2;SE
@@ -32,7 +32,7 @@ Vattenfall Eldistribution AB;Bergslagen Östra;BGO;DISTRIBUTION;SE3;SE
 Vattenfall Eldistribution AB;Bergslagen region;BGS;REGIONAL;SE3;SE
 Ellevio AB;Bergvik region;BEV;REGIONAL;SE2;SE
 Bjäre Kraft Elnät AB;Bjäre;BJR;DISTRIBUTION;SE4;SE
-Bjärke Energi Ek. För.;Bjärke;BKE;DISTRIBUTION;SE3;SE
+Bjärke Energi ek för;Bjärke;BKE;DISTRIBUTION;SE3;SE
 Upplands Energi;Björklinge;BJL;DISTRIBUTION;SE3;SE
 Kraftringen Nät AB;Björnekulla;BJK;DISTRIBUTION;SE4;SE
 Vattenfall Eldistribution AB;Björnlandet;BLT;REGIONAL;SE2;SE
@@ -40,14 +40,14 @@ E.ON Energidistribution AB;Blekinge;BLE;DISTRIBUTION;SE4;SE
 Bliekevare Nät AB;Bliekevare;BLI;REGIONAL;SE2;SE
 Bodens Energi Nät AB;Boden;BDN;DISTRIBUTION;SE1;SE
 Ellevio AB;Bohuslän Norra;NBL;DISTRIBUTION;SE3;SE
-Boo Energi ek. för;Boo;BOO;DISTRIBUTION;SE3;SE
+Boo Energi ek för;Boo;BOO;DISTRIBUTION;SE3;SE
 Nätkraft Borås Infra AB;Borås;BRS;DISTRIBUTION;SE3;SE
 Borgholm Energi Elnät AB;Borgholm;BHM;DISTRIBUTION;SE4;SE
 Borlänge Energi Elnät AB;Borlänge;BRL;DISTRIBUTION;SE3;SE
 Brännliden Nät AB;Brännliden;BLN;PRODUCTION;SE1;SE
 Brittedals Elnät ek för;Brittedal;BDL;DISTRIBUTION;SE4;SE
 Brobacken Nät AB;Brobacken;BBN;REGIONAL;SE1;SE
-Bromölla Energi & Vatten AB;Bromölla;BMA;DISTRIBUTION;SE4;SE
+Bromölla Energi och Vatten AB;Bromölla;BMA;DISTRIBUTION;SE4;SE
 Skellefteå Kraft Elnät AB;Bygdeå-Robertsfors;BYG;DISTRIBUTION;SE2;SE
 Carlfors Bruk AB;Carlfors Bruk;CBR;DISTRIBUTION;SE3;SE
 Ellevio AB;Dalarna region;DAL;REGIONAL;SE3;SE
@@ -64,7 +64,7 @@ Ellevio AB;Ekeröarna;EKO;DISTRIBUTION;SE3;SE
 Eksjö Elnät AB;Eksjö;ESJ;DISTRIBUTION;SE3;SE
 Emmaboda Elnät AB;Emmaboda;EBA;DISTRIBUTION;SE4;SE
 E.ON Energidistribution AB;Enköping;EKG;DISTRIBUTION;SE3;SE
-Eskilstuna Energi och Miljö Elnät AB;Eskilstuna;ESK;DISTRIBUTION;SE3;SE
+Eskilstuna Energi & Miljö Elnät AB;Eskilstuna;ESK;DISTRIBUTION;SE3;SE
 Ellevio AB;Fågelsjö Region;FLS;REGIONAL;SE2;SE
 Västerbergslagens Elnät AB;Fagersta;FGA;DISTRIBUTION;SE3;SE
 Falbygdens Energi Nät AB;Falbygden;FBN;DISTRIBUTION;SE3;SE
@@ -135,23 +135,23 @@ Nacka Energi AB;Järla;JRA;DISTRIBUTION;SE3;SE
 Fortum Sverige AB;Järpströmmen region;JPS;REGIONAL;SE2;SE
 Ellevio AB;Järva-Danderyd;JDA;REGIONAL;SE3;SE
 Jönköping Energi Nät AB;Jönköping;JNK;DISTRIBUTION;SE3;SE
-Jukkasjärvi Sockens Belysningsförening;Jukkasjärvi;JUJ;DISTRIBUTION;SE1;SE
+Jukkasjärvi Sockens Belysningsförening - JBF;Jukkasjärvi;JUJ;DISTRIBUTION;SE1;SE
 Fortum Sverige AB;Juveln;JUV;REGIONAL;SE2;SE
 Vattenfall Eldistribution AB;Kalixbygden;KAB;DISTRIBUTION;SE1;SE
 Kalmar Energi Elnät AB;Kalmar;KMR;DISTRIBUTION;SE4;SE
 Karlsborgs Elnät AB;Karlsborg;KBG;DISTRIBUTION;SE3;SE
 Karlshamn Elnät AB;Karlshamn;KHN;DISTRIBUTION;SE4;SE
 Karlskoga Elnät AB;Karlskoga;KSA;DISTRIBUTION;SE3;SE
-Affärsverken Elnät AB;Karlskrona;KKA;DISTRIBUTION;SE4;SE
+Affärsverken Elnät i Karlskrona AB;Karlskrona;KKA;DISTRIBUTION;SE4;SE
 Karlstads Elnät AB;Karlstad;KST;DISTRIBUTION;SE3;SE
 Karskruv Nät AB;Karskruv;KAR;REGIONAL;SE4;SE
-Tekniska verken i Katrineholm Nät AB;Katrineholmsbygden;KHB;DISTRIBUTION;SE3;SE
+Tekniska verken Katrineholm Nät AB;Katrineholmsbygden;KHB;DISTRIBUTION;SE3;SE
 Ellevio AB;Kema Nord region;KEM;REGIONAL;SE2;SE
 Vattenfall Eldistribution AB;Kind;KND;DISTRIBUTION;SE3;SE
 Götene Elförening;Kinnekullebygden;KKB;DISTRIBUTION;SE3;SE
 LKAB Nät AB;Kiruna LKAB;KLK;DISTRIBUTION;SE1;SE
 Kraftringen Nät AB;Klippan;KPN;DISTRIBUTION;SE4;SE
-Boda Nät ekonomiska förening;Knäpplan;KNP;DISTRIBUTION;SE3;SE
+Boda Nät ek för;Knäpplan;KNP;DISTRIBUTION;SE3;SE
 Svenska kraftnät;Konti-Skan st;KON;TRANSMISSION;SE3;SE
 Ellevio AB;Kopparbergsbyggden;KOB;DISTRIBUTION;SE3;SE
 Billerud Skog & Industri AB;Korsnäs;KNS;NONCON;SE3;SE
@@ -163,10 +163,10 @@ Kristinehamns Elnät AB;Kristinehamn;KRH;DISTRIBUTION;SE3;SE
 Kungälv Energi AB;Kungälv;KUV;DISTRIBUTION;SE3;SE
 E.ON Energidistribution AB;Kungsbacka;KBA;DISTRIBUTION;SE3;SE
 Ellevio AB;Kungsbacka region;KUB;REGIONAL;SE3;SE
-Kvänumbygdens Energi ek. för;Kvänum;KVM;DISTRIBUTION;SE3;SE
+Kvänumbygdens Energi ek för;Kvänum;KVM;DISTRIBUTION;SE3;SE
 Kvarnforsen Nät AB;Kvarnforsen;KFN;REGIONAL;SE2;SE
 Brittedals Elnät ek för;Kviinge;KVI;DISTRIBUTION;SE4;SE
-Södra Hallands Kraft ekonomisk förening;Laholm;LHM;DISTRIBUTION;SE4;SE
+Södra Hallands Kraft ek för;Laholm;LHM;DISTRIBUTION;SE4;SE
 Landskrona Energi AB;Landskrona;LKA;DISTRIBUTION;SE4;SE
 Fortum Sverige AB;Långå;LAA;REGIONAL;SE2;SE
 Jämtkraft Elnät AB;Länsterhöjden;LAN;REGIONAL;SE2;SE
@@ -219,7 +219,7 @@ Svenska kraftnät;NordBalt;PLT;BORDER;SE4;SE
 Vattenfall Eldistribution AB;Norrbotten region;VFN;REGIONAL;SE1;SE
 E.ON Energidistribution AB;Norrköping Region;NKR;REGIONAL;SE3;SE
 Norrtälje Energi AB;Norrtälje;NTE;DISTRIBUTION;SE3;SE
-Nossebroortens Energi Ekonomisk Förening;Nossebro;NSB;DISTRIBUTION;SE3;SE
+Nossebroortens Energi ek för;Nossebro;NSB;DISTRIBUTION;SE3;SE
 Nybro Elnät AB;Nybro;NBR;DISTRIBUTION;SE4;SE
 Vattenfall Eldistribution AB;Nyköping;NYK;DISTRIBUTION;SE3;SE
 Vattenfall Eldistribution AB;Nyköping Landsbygd;NYD;DISTRIBUTION;SE3;SE
@@ -231,7 +231,7 @@ Olofströms Kraft Nät AB;Olofström;OLS;DISTRIBUTION;SE4;SE
 Olseröds Elektriska Distributionsförening;Olseröd;OSD;DISTRIBUTION;SE4;SE
 Övik Energi Nät AB;Örnsköldsvik;OVK;DISTRIBUTION;SE2;SE
 Ellevio AB;Orust-Tjörn;ORT;DISTRIBUTION;SE3;SE
-Västra Orusts Energitjänst ek. för.;Orust Västra;ORV;DISTRIBUTION;SE3;SE
+Västra Orusts Energitjänst ek för.;Orust Västra;ORV;DISTRIBUTION;SE3;SE
 Oskarshamn Energi Nät AB;Oskarshamn tätort;OHN;DISTRIBUTION;SE4;SE
 Sandviken Energi Elnät AB;Österfärnebo;OFB;DISTRIBUTION;SE3;SE
 Österlens Kraft Elnät AB;Österlen;OLN;DISTRIBUTION;SE4;SE
@@ -264,7 +264,7 @@ Ellevio AB;Skagerrakkusten Norra;NSK;REGIONAL;SE3;SE
 Ellevio AB;Skagerrakkusten Södra;SSK;REGIONAL;SE3;SE
 Öresundskraft Elnät AB;Skåne-Halland region;SKH;REGIONAL;SE4;SE
 E.ON Energidistribution AB;Skåne Landsbygd;SKL;DISTRIBUTION;SE4;SE
-Mellerst Skånes Kraft, ek för;Skåne Mellersta;SNM;DISTRIBUTION;SE4;SE
+Mellersta Skånes Kraft ek för;Skåne Mellersta;SNM;DISTRIBUTION;SE4;SE
 E.ON Energidistribution AB;Skåne Västra Lokalnät;SKV;DISTRIBUTION;SE4;SE
 Skånska Energi Nät AB;Skånska;SKN;DISTRIBUTION;SE4;SE
 Skara Elnät AB;Skara;SKA;DISTRIBUTION;SE3;SE
@@ -307,8 +307,8 @@ Vattenfall Eldistribution AB;Sydmälaren;SYM;DISTRIBUTION;SE3;SE
 E.ON Energidistribution AB;Sydsvenska region;SYD;REGIONAL;SE4;SE
 Näckåns Elnät AB;Sysslebäck;SBK;DISTRIBUTION;SE3;SE
 Ellevio AB;Täby;TBY;DISTRIBUTION;SE3;SE
-Tibro Energi AB;Tibro;TIB;DISTRIBUTION;SE3;SE
-Tidaholms Elnät AB;Tidaholm;THM;DISTRIBUTION;SE3;SE
+Tibro Elnät AB;Tibro;TIB;DISTRIBUTION;SE3;SE
+Tidaholm Elnät AB;Tidaholm;THM;DISTRIBUTION;SE3;SE
 Mälarenergi Elnät AB;Tillberga;TLB;DISTRIBUTION;SE3;SE
 Töre Energi ek för;Töre;TRE;DISTRIBUTION;SE1;SE
 VänerEnergi AB;Töreboda;TBA;DISTRIBUTION;SE3;SE
@@ -372,4 +372,4 @@ Vattenfall Eldistribution AB;Vilhelmina;VMA;DISTRIBUTION;SE2;SE
 Vimmerby Energi Nät AB;Vimmerby;VBY;DISTRIBUTION;SE3;SE
 Skellefteå Kraft Elnät AB;Vindeln;VDN;DISTRIBUTION;SE2;SE
 Vattenfall Eldistribution AB;Vingåkersbygden;VIG;DISTRIBUTION;SE3;SE
-Ystad Elnät AB;Ystad;YST;DISTRIBUTION;SE4;SE
+Ystad Energi Elnät AB;Ystad;YST;DISTRIBUTION;SE4;SE
