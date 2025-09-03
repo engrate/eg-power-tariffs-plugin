@@ -27,8 +27,8 @@ class NotEnabledError(ControlledException):
 class IllegalArgumentError(ControlledException):
     """Illegal argument provided"""
 
-    def __init__(self):
-        super().__init__("Illegal argument provided")
+    def __init__(self,msg: str = None):
+        super().__init__(f"Illegal argument provided: {msg}")
 
 class IllegalStateError(ControlledException):
     """state of the system is not valid for the operation"""

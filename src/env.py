@@ -79,6 +79,7 @@ AUTO_MIGRATE = env.EnvVarSpec(
     type=(bool, ...),
 )
 
+
 ## Provisioning ##
 
 SET_FEATURE_FLAGS = env.EnvVarSpec(
@@ -86,6 +87,28 @@ SET_FEATURE_FLAGS = env.EnvVarSpec(
     parse=lambda x: json.loads(x) if x else None,
     default="",
     type=(list[FeatureFlagSpec] | None, ...),
+)
+
+
+LOAD_TARIFFS_DEFINITIONS = env.EnvVarSpec(
+    id="LOAD_TARIFFS_DEFINITIONS",
+    parse=lambda x: x.lower() == "true",
+    default="false",
+    type=(bool, ...),
+)
+
+LOAD_OPERATORS = env.EnvVarSpec(
+    id="LOAD_OPERATORS",
+    parse=lambda x: x.lower() == "true",
+    default="false",
+    type=(bool, ...),
+)
+
+LOAD_METERING_GRID_AREAS = env.EnvVarSpec(
+    id="LOAD_METERING_GRID_AREAS",
+    parse=lambda x: x.lower() == "true",
+    default="false",
+    type=(bool, ...),
 )
 
 ## Postgres ##
@@ -249,3 +272,12 @@ def get_registrar_url():
 
 def get_auto_register() -> bool:
     return cast(bool, env.parse(AUTO_REGISTER))
+
+def must_load_tariffs_definitions() -> bool:
+    return cast(bool, env.parse(LOAD_TARIFFS_DEFINITIONS))
+
+def must_load_operators() -> bool:
+    return cast(bool, env.parse(LOAD_OPERATORS))
+
+def must_load_metering_grid_areas() -> bool:
+    return cast(bool, env.parse(LOAD_METERING_GRID_AREAS))

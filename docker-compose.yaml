@@ -15,7 +15,7 @@ services:
       # Persist data between container restarts
       - postgres_data:/var/lib/postgresql/data
       # Optional: Mount initialization scripts
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./data:/docker-entrypoint-initdb.d
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U power-tariffs -d power-tariffs" ]
       interval: 10s

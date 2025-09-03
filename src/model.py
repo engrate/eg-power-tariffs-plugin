@@ -1,6 +1,5 @@
 from datetime import datetime
-from enum import Enum
-from typing import List
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -20,7 +19,6 @@ class TariffCompositionSpec(BaseModel):
     days: list[str]
     fuse_from: str = Field(..., alias="fuseFrom")
     fuse_to: str = Field(..., alias="fuseTo")
-    hints: dict
     unit: str
     price_exc_vat: float = Field(..., alias="priceExcVat")
     price_inc_vat: float = Field(..., alias="priceIncVat")
@@ -29,45 +27,43 @@ class TariffCompositionSpec(BaseModel):
     class Config:
         populate_by_name = True
 
-class BuildingTypeSpec(str, Enum):
-    DETACHED_HOUSE = "detached_house"
-    TERRACED_HOUSE = "terraced_house"
-    SUMMER_HOUSE = "summer_house"
-    APARTMENTS = "apartments"
-
-class PowerTariffFeeSpec(BaseModel):
-    """Power tariff fee structure"""
+class PowerTariffSpec(BaseModel):
+    """Power tariff model for a DSO - now includes fee information directly"""
+    uid: Optional[str] = None
     name: str
     model: str
-    description: str
+    description: Optional[str] = None
     samples_per_month: int = Field(..., alias="samplesPerMonth")
     time_unit: str = Field(..., alias="timeUnit")
-    building_types: List[BuildingTypeSpec] = Field(..., alias="buildingTypes")
-    composition: list[TariffCompositionSpec]
-
-    class Config:
-        populate_by_name = True
-
-class GridProviderSpec(BaseModel):
-    """Grid provider model for a DSO"""
-    uid: str
-    name: str
-    ediel: int
-    org_number: str
-
-
-class PowerTariffSpec(BaseModel):
-    """Power tariff model for a DSO"""
-    id: str
-    provider: GridProviderSpec
-    country_code: str = Field(..., alias="countryCode")
-    time_zone: str = Field(..., alias="timeZone")
+    is_apartment: bool = Field(default=False, alias="isApartment")
     last_updated: datetime = Field(..., alias="lastUpdated")
     valid_from: datetime = Field(..., alias="validFrom")
     valid_to: datetime = Field(..., alias="validTo")
-    fees: list[PowerTariffFeeSpec]
+    compositions: list[TariffCompositionSpec]
+    metering_grid_areas: list["MeteringGridAreaSpec"]
 
     class Config:
         populate_by_name = True
         json_encoders = {datetime: lambda v: v.isoformat()}
+
+class GridOperatorSpec(BaseModel):
+    """Grid provider model for a DSO"""
+    uid:Optional[str] = None
+    name: str
+    ediel: int
+    class Config:
+        populate_by_name = True
+
+class MeteringGridAreaSpec(BaseModel):
+    """Metering grid area model for a DSO"""
+    code: str
+    name: str
+    country_code: str = Field(default="SE", alias="countryCode")
+    metering_business_area: str = Field(..., alias="meteringBusinessArea")
+    grid_operator: GridOperatorSpec = Field(..., alias="gridOperator")
+    power_tariffs: Optional[list[PowerTariffSpec]]= Field(default=None,alias="powerTariffs")
+
+    class Config:
+        populate_by_name = True
+
 

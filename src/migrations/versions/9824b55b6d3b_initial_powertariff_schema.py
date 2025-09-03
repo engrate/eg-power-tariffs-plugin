@@ -19,118 +19,124 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade():
-    # Create providers table
+    # Create grid_operators table
     op.create_table(
-        'providers',
-        sa.Column('uid', UUID, primary_key=True, server_default=sa.text("gen_random_uuid()")),
+        'grid_operators',
+        sa.Column('uid', UUID, primary_key=True),
         sa.Column("name", sa.String(length=255), nullable=False),
-        sa.Column("org_number", sa.String(length=50), nullable=True),
-        sa.Column("ediel",sa.Integer(),nullable=False),
-        sa.Column("active", sa.Boolean(), nullable=False, server_default='true'),
+        sa.Column("ediel", sa.Integer(), nullable=False),
         sa.UniqueConstraint("ediel"),
         sa.UniqueConstraint('name'),
-        sa.UniqueConstraint("org_number"),
     )
 
     op.create_index(
-        'ix_providers_name',
-        'providers', ['name'],
+        'ix_grid_operators_name',
+        'grid_operators', ['name'],
     )
 
     op.create_index(
-        'ix_providers_org_number',
-        'providers', ['org_number'],
+        'ix_grid_operators_ediel',
+        'grid_operators', ['ediel'],
     )
 
-    op.create_index(
-        'ix_providers_ediel',
-        'providers', ['ediel'],
-    )
-
-    # Create power_tariffs table
+    # Create metering_grid_areas table
     op.create_table(
-        'power_tariffs',
-        sa.Column('uid', UUID, primary_key=True, server_default=sa.text("gen_random_uuid()")),
-        sa.Column('provider_uid', UUID, nullable=False),
-        sa.Column("country_code", sa.String(length=2), nullable=False),
-        sa.Column("time_zone", sa.String(length=50), nullable=False, server_default='Europe/Stockholm'),
-        sa.Column('last_updated', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
-        sa.Column('valid_from', sa.DateTime(timezone=True), nullable=False),
-        sa.Column('valid_to', sa.DateTime(timezone=True), nullable=False),
+        'metering_grid_areas',
+        sa.Column("code", sa.String(length=5), primary_key=True),
+        sa.Column("name", sa.String(length=255), nullable=False),
+        sa.Column("country_code", sa.String(length=2), nullable=False, server_default='SE'),
+        sa.Column("metering_business_area", sa.String(length=5), nullable=False),
+        sa.Column('grid_operator_uid', UUID, nullable=False),
+        sa.UniqueConstraint('name'),
     )
 
     op.create_foreign_key(
-        'fk_power_tariffs_provider_uid',
-        'power_tariffs', 'providers',
-        ['provider_uid'], ['uid'],
+        'fk_metering_grid_areas_grid_operator_uid',
+        'metering_grid_areas', 'grid_operators',
+        ['grid_operator_uid'], ['uid'],
     )
 
-    # Create power_tariff_fees table
+    op.create_index(
+        'ix_metering_grid_areas_grid_operator_uid',
+        'metering_grid_areas', ['grid_operator_uid'],
+    )
+
+    # Create power_tariffs table (must be created before the junction table)
     op.create_table(
-        'power_tariff_fees',
+        'power_tariffs',
         sa.Column('uid', UUID, primary_key=True, server_default=sa.text("gen_random_uuid()")),
-        sa.Column('tariff_id', UUID, nullable=False),
         sa.Column('name', sa.String(length=255), nullable=False),
         sa.Column('model', sa.String(length=50), nullable=False),
         sa.Column('description', sa.Text()),
         sa.Column('samples_per_month', sa.Integer(), nullable=False),
         sa.Column('time_unit', sa.String(length=20), nullable=False),
-        sa.Column('building_types', ARRAY(sa.String(length=50))),
+        sa.Column('isApartment', sa.Boolean(), nullable=False, server_default='false'),
+        sa.Column('last_updated', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
+        sa.Column('valid_from', sa.DateTime(timezone=True), nullable=False),
+        sa.Column('valid_to', sa.DateTime(timezone=True), nullable=False),
+        sa.Column('compositions', JSON, nullable=False),
     )
 
-    op.create_foreign_key(
-        'fk_power_tariff_fees_tariff_id',
-        'power_tariff_fees', 'power_tariffs',
-        ['tariff_id'], ['uid'],
-        ondelete='CASCADE'
-    )
-    op.create_index(
-        'ix_power_tariff_fees_tariff_id',
-        'power_tariff_fees', ['tariff_id'],
-    )
-
-    # Create tariff_compositions table
+    # Create junction table for many-to-many relationship
     op.create_table(
-        'tariff_compositions',
-        sa.Column('uid', UUID, primary_key=True, server_default=sa.text("gen_random_uuid()")),
-        sa.Column('fee_id', UUID, nullable=False),
-        sa.Column('months', ARRAY(sa.Integer()), nullable=False),
-        sa.Column('days', ARRAY(sa.String()), nullable=False),
-        sa.Column('fuse_from', sa.String(length=10), nullable=False),
-        sa.Column('fuse_to', sa.String(length=10), nullable=False),
-        sa.Column('hints', JSON),
-        sa.Column('unit', sa.String(length=20), nullable=False),
-        sa.Column('price_exc_vat', sa.Float(), nullable=False),
-        sa.Column('price_inc_vat', sa.Float(), nullable=False),
-        sa.Column('intervals', JSON, nullable=False),
+        'metering_area_x_power_tariff',
+        sa.Column("uid", sa.UUID, primary_key=True),
+        sa.Column("mga_code", sa.String(length=5), nullable=False),
+        sa.Column("tariff_uid", UUID, nullable=False),
+        sa.Column("voltage", sa.String(length=10), nullable=False),
     )
 
-    # Add foreign key constraint separately
     op.create_foreign_key(
-        'fk_tariff_compositions_fee_id',
-        'tariff_compositions', 'power_tariff_fees',
-        ['fee_id'], ['uid'],
-        ondelete='CASCADE'
+        "fk_mgas_x_tariffs_mga_code",
+        "metering_area_x_power_tariff",
+        "metering_grid_areas",
+        ["mga_code"],
+        ["code"]
     )
+
+    op.create_foreign_key(
+        "fk_mgas_x_tariffs_tariff_uid",
+        "metering_area_x_power_tariff",
+        "power_tariffs",
+        ["tariff_uid"],
+        ["uid"]
+    )
+
+    # Create indexes for the junction table
     op.create_index(
-        'ix_tariff_compositions_fee_id',
-        'tariff_compositions', ['fee_id'],
+        'ix_metering_area_x_power_tariff_mga_code',
+        'metering_area_x_power_tariff', ['mga_code'],
     )
+
+    op.create_index(
+        'ix_metering_area_x_power_tariff_tariff_uid',
+        'metering_area_x_power_tariff', ['tariff_uid'],
+    )
+
+    # Create composite index for better query performance
+    op.create_index(
+        'ix_metering_area_x_power_tariff_mga_tariff',
+        'metering_area_x_power_tariff', ['mga_code', 'tariff_uid'],
+        unique=True  # Ensure no duplicate relationships
+    )
+
 
 def downgrade():
-    # Drop foreign key constraints first
-    op.drop_constraint(
-        'fk_tariff_compositions_fee_id', 'tariff_compositions',
-    )
-    op.drop_constraint(
-        'fk_power_tariff_fees_tariff_id', 'power_tariff_fees',
-    )
+    # Drop indexes first
+    op.drop_index('ix_metering_area_x_power_tariff_mga_tariff')
+    op.drop_index('ix_metering_area_x_power_tariff_tariff_uid')
+    op.drop_index('ix_metering_area_x_power_tariff_mga_code')
+    op.drop_index('ix_metering_grid_areas_grid_operator_uid')
+    op.drop_index('ix_grid_operators_ediel')
+    op.drop_index('ix_grid_operators_name')
+
+    # Drop foreign key constraints
+    op.drop_constraint('fk_mgas_x_tariffs_tariff_uid', 'metering_area_x_power_tariff')
+    op.drop_constraint('fk_mgas_x_tariffs_mga_code', 'metering_area_x_power_tariff')
+    op.drop_constraint('fk_metering_grid_areas_grid_operator_uid', 'metering_grid_areas')
 
     # Drop tables in reverse order
-    op.drop_index('ix_tariff_compositions_fee_id')
-    op.drop_table('tariff_compositions')
-
-    op.drop_index('ix_power_tariff_fees_tariff_id')
-    op.drop_table('power_tariff_fees')
-
+    op.drop_table('metering_area_x_power_tariff')
     op.drop_table('power_tariffs')
+    op.drop_table('metering_grid_areas')
+    op.drop_table('grid_operators')

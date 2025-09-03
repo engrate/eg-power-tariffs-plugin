@@ -1,7 +1,7 @@
-from src.model import GridProviderSpec
+from src.model import GridOperatorSpec
 from src.clients import elomraden
 from src.model import PowerTariffSpec
-from src.repositories.powtar_repository import PowerTariffRepository
+from src.repositories.power_tariffs_repository import PowerTariffRepository
 
 
 class PowerTariffService:
@@ -12,11 +12,11 @@ class PowerTariffService:
     def __init__(self, repository:PowerTariffRepository):
         self.repository = repository
 
-    async def get_grid_providers(self) -> list[GridProviderSpec]:
+    async def get_grid_operators(self) -> list[GridOperatorSpec]:
         """
-        Get all grid providers.
+        Get all grid operators.
         """
-        return await self.repository.list_providers()
+        return await self.repository.list_operators()
     
     async def get_tariffs(self) -> list[PowerTariffSpec]:
         """
