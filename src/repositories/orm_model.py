@@ -41,7 +41,7 @@ class PowerTariff(BaseSQLModel):
     description = Column(Text)
     samples_per_month = Column(Integer, nullable=False)
     time_unit = Column(String(20), nullable=False)
-    isApartment = Column(Boolean, nullable=False, default=False)
+    building_type = Column(String(50), nullable=False, default=False)
     last_updated = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     valid_from = Column(DateTime(timezone=True), nullable=False)
     valid_to = Column(DateTime(timezone=True), nullable=False)

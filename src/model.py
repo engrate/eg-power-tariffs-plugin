@@ -1,7 +1,15 @@
 from datetime import datetime
+from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, Field
+
+
+class BuildingType(str, Enum):
+    APARTMENT = "apartment"
+    HOUSE = "house"
+    ALL = "all"
+
 
 
 class TimeIntervalSpec(BaseModel):
@@ -35,7 +43,7 @@ class PowerTariffSpec(BaseModel):
     description: Optional[str] = None
     samples_per_month: int = Field(..., alias="samplesPerMonth")
     time_unit: str = Field(..., alias="timeUnit")
-    is_apartment: bool = Field(default=False, alias="isApartment")
+    building_type: BuildingType = Field(default="all", alias="buildingType")
     last_updated: datetime = Field(..., alias="lastUpdated")
     valid_from: datetime = Field(..., alias="validFrom")
     valid_to: datetime = Field(..., alias="validTo")

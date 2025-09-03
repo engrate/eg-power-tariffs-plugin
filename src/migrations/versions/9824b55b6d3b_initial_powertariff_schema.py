@@ -70,7 +70,7 @@ def upgrade():
         sa.Column('description', sa.Text()),
         sa.Column('samples_per_month', sa.Integer(), nullable=False),
         sa.Column('time_unit', sa.String(length=20), nullable=False),
-        sa.Column('isApartment', sa.Boolean(), nullable=False, server_default='false'),
+        sa.Column('building_type', sa.String(length=50), nullable=False, server_default='All'),
         sa.Column('last_updated', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
         sa.Column('valid_from', sa.DateTime(timezone=True), nullable=False),
         sa.Column('valid_to', sa.DateTime(timezone=True), nullable=False),

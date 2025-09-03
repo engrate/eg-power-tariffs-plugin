@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 
 from engrate_sdk.utils import log
 
+import env
 from exceptions import IllegalArgumentError
 from src.clients import elomraden_model, elomraden
 from src.model import GridOperatorSpec, PowerTariffSpec
@@ -22,7 +23,7 @@ PowerTariffSvc = Annotated[PowerTariffService, Depends(lambda: PowerTariffServic
 @router.get("/areas/postal-code",
             response_model=elomraden_model.GridArea,
             summary="Returns a grid area by postal code",
-            include_in_schema=False)
+            include_in_schema=env.is_dev_mode())
 async def fetch_area_by_postal_code(code:int):
     """Fetch an area by post code"""
     area = await elomraden.get_area_by_postnumber(code)
@@ -31,7 +32,7 @@ async def fetch_area_by_postal_code(code:int):
 @router.get("/areas/address",
             response_model=elomraden_model.GridArea,
             summary="Returns a grid area by address and locality",
-            include_in_schema=False)
+            include_in_schema=env.is_dev_mode())
 async def fetch_area_by_address(address:str, locality:str):
     """Fetch an area by post code"""
     area = await elomraden.get_area_by_address(address,locality)
@@ -40,7 +41,7 @@ async def fetch_area_by_address(address:str, locality:str):
 @router.get("/areas/coordinates",
             response_model=elomraden_model.GridArea,
             summary="Returns a grid area by coordinates",
-            include_in_schema=False)
+            include_in_schema=env.is_dev_mode())
 async def fetch_area_by_coordinates(lat:str, lon:str):
     """Fetch an area by coordinates"""
     area = await elomraden.get_area_by_coordinates(lat,lon)
@@ -49,7 +50,7 @@ async def fetch_area_by_coordinates(lat:str, lon:str):
 @router.get("/grid-operators",
             response_model=list[GridOperatorSpec],
             summary="Returns all grid operators",
-            include_in_schema=True)
+            include_in_schema=env.is_dev_mode())
 async def fetch_grid_operators(power_tariffs_service: PowerTariffSvc):
     """Fetches all grid operators."""
     return await power_tariffs_service.get_grid_operators()
@@ -80,3 +81,4 @@ async def power_tariff_by_address(power_tariffs_service: PowerTariffSvc, address
 async def power_tariff_by_postal_code(power_tariffs_service: PowerTariffSvc, code:int):
     """Fetches power tariffs by postal code."""
     return await power_tariffs_service.get_tariff_by_postal_code(code)
+
