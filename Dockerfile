@@ -6,9 +6,10 @@ WORKDIR /power-tariffs
 RUN pip install --upgrade pip && pip install uv
 
 # # NOTE: this presumes we're building from the repo root
-COPY /src /power-tariffs/src
-COPY plugin_manifest.yaml /power-tariffs/plugin_manifest.yaml
-COPY /static /power-tariffs/static
+COPY /src ./src
+COPY plugin_manifest.yaml ./plugin_manifest.yaml
+COPY /static ./static
+COPY /data ./data
 
 COPY pyproject.toml .
 COPY uv.lock .
