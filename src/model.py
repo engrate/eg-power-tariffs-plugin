@@ -10,8 +10,10 @@ class BuildingType(str, Enum):
     HOUSE = "house"
     ALL = "all"
 
+
 class TimeIntervalSpec(BaseModel):
     """Time interval for tariff rates. Multiplier is necessary given companies might have different rates per interval"""
+
     from_time: str = Field(..., alias="from")
     to_time: str = Field(..., alias="to")
     multiplier: float
@@ -19,9 +21,11 @@ class TimeIntervalSpec(BaseModel):
     class Config:
         populate_by_name = True
 
+
 class TariffCompositionSpec(BaseModel):
     """Component of a tariff fee composition"""
-    months: list[int]
+
+    months: list[str]
     days: list[str]
     fuse_from: str = Field(..., alias="fuseFrom")
     fuse_to: str = Field(..., alias="fuseTo")
@@ -33,8 +37,10 @@ class TariffCompositionSpec(BaseModel):
     class Config:
         populate_by_name = True
 
+
 class PowerTariffSpec(BaseModel):
     """Power tariff model for a DSO - now includes fee information directly"""
+
     uid: Optional[str] = None
     name: str
     model: str
@@ -43,8 +49,9 @@ class PowerTariffSpec(BaseModel):
     time_unit: str = Field(..., alias="timeUnit")
     building_type: BuildingType = Field(default="all", alias="buildingType")
     last_updated: datetime = Field(..., alias="lastUpdated")
-    valid_from: datetime = Field(..., alias="validFrom")
-    valid_to: datetime = Field(..., alias="validTo")
+    valid_from: Optional[datetime] = Field(default=None, alias="validFrom")
+    valid_to: Optional[datetime] = Field(default=None, alias="validTo")
+    voltage: str
     compositions: list[TariffCompositionSpec]
     metering_grid_areas: list["MeteringGridAreaSpec"]
 
@@ -52,24 +59,27 @@ class PowerTariffSpec(BaseModel):
         populate_by_name = True
         json_encoders = {datetime: lambda v: v.isoformat()}
 
+
 class GridOperatorSpec(BaseModel):
     """Grid provider model for a DSO"""
-    uid:Optional[str] = None
+
+    uid: Optional[str] = None
     name: str
     ediel: int
+
     class Config:
         populate_by_name = True
 
+
 class MeteringGridAreaSpec(BaseModel):
     """Metering grid area model for a DSO"""
+
     code: str
     name: str
     country_code: str = Field(default="SE", alias="countryCode")
     metering_business_area: str = Field(..., alias="meteringBusinessArea")
     grid_operator: GridOperatorSpec = Field(..., alias="gridOperator")
-    power_tariffs: Optional[list[PowerTariffSpec]]= Field(default=None,alias="powerTariffs")
+    power_tariffs: list[PowerTariffSpec] = Field(default=[], alias="powerTariffs")
 
     class Config:
         populate_by_name = True
-
-

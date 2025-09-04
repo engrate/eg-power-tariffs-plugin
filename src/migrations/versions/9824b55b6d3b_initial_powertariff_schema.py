@@ -72,8 +72,9 @@ def upgrade():
         sa.Column('time_unit', sa.String(length=20), nullable=False),
         sa.Column('building_type', sa.String(length=50), nullable=False, server_default='All'),
         sa.Column('last_updated', sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False),
-        sa.Column('valid_from', sa.DateTime(timezone=True), nullable=False),
-        sa.Column('valid_to', sa.DateTime(timezone=True), nullable=False),
+        sa.Column('valid_from', sa.DateTime(timezone=True), nullable=True),
+        sa.Column('valid_to', sa.DateTime(timezone=True), nullable=True),
+        sa.Column("voltage", sa.String(length=10), nullable=False),
         sa.Column('compositions', JSON, nullable=False),
     )
 
@@ -83,7 +84,6 @@ def upgrade():
         sa.Column("uid", sa.UUID, primary_key=True),
         sa.Column("mga_code", sa.String(length=5), nullable=False),
         sa.Column("tariff_uid", UUID, nullable=False),
-        sa.Column("voltage", sa.String(length=10), nullable=False),
     )
 
     op.create_foreign_key(
