@@ -10,8 +10,7 @@ from engrate_sdk.http.server import HttpServer
 from engrate_sdk.utils import log
 from engrate_sdk.utils.uuid import uuid7
 
-from model import PowerTariffSpec
-from src import init,env
+from src import init, env
 
 logger = log.get_logger(__name__)
 

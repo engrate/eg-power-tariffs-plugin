@@ -1,10 +1,10 @@
+from engrate_sdk.utils import log
 from fastapi import APIRouter
 
 import env
 from clients import elomraden_model, elomraden
 from model import GridOperatorSpec
 from utils import PowerTariffSvc
-from engrate_sdk.utils import log
 
 logger = log.get_logger(__name__)
 router = APIRouter(
