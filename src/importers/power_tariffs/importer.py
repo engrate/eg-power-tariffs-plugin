@@ -165,6 +165,11 @@ async def _save_operator_tariffs(
                 )
             )
 
+        if not compositions:
+            logger.warning(
+                f"No tariffs composition for {power_tariff.name} EDIEL {operator.ediel}"
+            )
+
         power_tariff = PowerTariffSpec(
             name=power_tariff.name,
             model=power_tariff.model,
