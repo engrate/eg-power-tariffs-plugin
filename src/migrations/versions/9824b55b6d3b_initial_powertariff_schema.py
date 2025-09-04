@@ -79,7 +79,7 @@ def upgrade():
 
     # Create junction table for many-to-many relationship
     op.create_table(
-        'metering_area_x_power_tariff',
+        'metering_grid_area_x_power_tariff',
         sa.Column("uid", sa.UUID, primary_key=True),
         sa.Column("mga_code", sa.String(length=5), nullable=False),
         sa.Column("tariff_uid", UUID, nullable=False),
@@ -88,7 +88,7 @@ def upgrade():
 
     op.create_foreign_key(
         "fk_mgas_x_tariffs_mga_code",
-        "metering_area_x_power_tariff",
+        "metering_grid_area_x_power_tariff",
         "metering_grid_areas",
         ["mga_code"],
         ["code"]
@@ -96,7 +96,7 @@ def upgrade():
 
     op.create_foreign_key(
         "fk_mgas_x_tariffs_tariff_uid",
-        "metering_area_x_power_tariff",
+        "metering_grid_area_x_power_tariff",
         "power_tariffs",
         ["tariff_uid"],
         ["uid"]
@@ -104,39 +104,39 @@ def upgrade():
 
     # Create indexes for the junction table
     op.create_index(
-        'ix_metering_area_x_power_tariff_mga_code',
-        'metering_area_x_power_tariff', ['mga_code'],
+        'ix_metering_grid_area_x_power_tariff_mga_code',
+        'metering_grid_area_x_power_tariff', ['mga_code'],
     )
 
     op.create_index(
-        'ix_metering_area_x_power_tariff_tariff_uid',
-        'metering_area_x_power_tariff', ['tariff_uid'],
+        'ix_metering_grid_area_x_power_tariff_tariff_uid',
+        'metering_grid_area_x_power_tariff', ['tariff_uid'],
     )
 
     # Create composite index for better query performance
     op.create_index(
-        'ix_metering_area_x_power_tariff_mga_tariff',
-        'metering_area_x_power_tariff', ['mga_code', 'tariff_uid'],
+        'ix_metering_grid_area_x_power_tariff_mga_tariff',
+        'metering_grid_area_x_power_tariff', ['mga_code', 'tariff_uid'],
         unique=True  # Ensure no duplicate relationships
     )
 
 
 def downgrade():
     # Drop indexes first
-    op.drop_index('ix_metering_area_x_power_tariff_mga_tariff')
-    op.drop_index('ix_metering_area_x_power_tariff_tariff_uid')
-    op.drop_index('ix_metering_area_x_power_tariff_mga_code')
+    op.drop_index('ix_metering_grid_area_x_power_tariff_mga_tariff')
+    op.drop_index('ix_metering_grid_area_x_power_tariff_tariff_uid')
+    op.drop_index('ix_metering_grid_area_x_power_tariff_mga_code')
     op.drop_index('ix_metering_grid_areas_grid_operator_uid')
     op.drop_index('ix_grid_operators_ediel')
     op.drop_index('ix_grid_operators_name')
 
     # Drop foreign key constraints
-    op.drop_constraint('fk_mgas_x_tariffs_tariff_uid', 'metering_area_x_power_tariff')
-    op.drop_constraint('fk_mgas_x_tariffs_mga_code', 'metering_area_x_power_tariff')
+    op.drop_constraint('fk_mgas_x_tariffs_tariff_uid', 'metering_grid_area_x_power_tariff')
+    op.drop_constraint('fk_mgas_x_tariffs_mga_code', 'metering_grid_area_x_power_tariff')
     op.drop_constraint('fk_metering_grid_areas_grid_operator_uid', 'metering_grid_areas')
 
     # Drop tables in reverse order
-    op.drop_table('metering_area_x_power_tariff')
+    op.drop_table('metering_grid_area_x_power_tariff')
     op.drop_table('power_tariffs')
     op.drop_table('metering_grid_areas')
     op.drop_table('grid_operators')
