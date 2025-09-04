@@ -6,4 +6,5 @@ app = FastAPI(
     description="Plugin to provide power tariffs data and functionality",
 )
 
+
 Instrumentator().instrument(app).expose(app)

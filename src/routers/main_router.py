@@ -1,0 +1,47 @@
+from engrate_sdk.utils import log
+from fastapi import APIRouter
+
+import env
+from src.clients import elomraden_model
+from utils import PowerTariffSvc
+
+logger = log.get_logger(__name__)
+router = APIRouter(
+    tags=["Power Tariffs API"],
+    include_in_schema=True,
+    prefix="/power-tariffs"
+)
+
+
+@router.get("/{country-code}/mga/{mga-code}",
+            response_model=elomraden_model.GridArea,
+            summary="Returns a grid area by postal code",
+            include_in_schema=env.is_dev_mode())
+async def power_tariff_by_mga(power_tariffs_service: PowerTariffSvc, countr_code:str, mga_code:str):
+    """Fetches power tariffs by mga code"""
+    return await power_tariffs_service.get_tariff_by_provider_name(mga_code)##TODO fix this
+
+@router.get("/{country-code}/postal-code/{postal-code}",
+            response_model=elomraden_model.GridArea,
+            summary="Returns a grid area by postal code",
+            include_in_schema=env.is_dev_mode())
+async def power_tariff_by_postal_code(power_tariffs_service: PowerTariffSvc, countr_code:str, postal_code:int):
+    """Fetches power tariffs by mga code"""
+    return await power_tariffs_service.get_tariff_by_postal_code(postal_code)##TODO fix this
+
+@router.get("/{country-code}/lat/{lat}/long/{long}",
+            response_model=elomraden_model.GridArea,
+            summary="Returns a grid area by postal code",
+            include_in_schema=env.is_dev_mode())
+async def power_tariff_by_coordinate(power_tariffs_service: PowerTariffSvc, countr_code:str, lat:str,long:str):
+    """Fetches power tariffs by mga code"""
+    return await power_tariffs_service.get_tariff_by_postal_code(lat)##TODO fix this
+
+@router.get("/{country-code}/address/{address}/ort/{ort}",
+            response_model=elomraden_model.GridArea,
+            summary="Returns a grid area by postal code",
+            include_in_schema=env.is_dev_mode())
+async def power_tariff_by_coordinate(power_tariffs_service: PowerTariffSvc, address:str, ort:str):
+    """Fetches power tariffs by mga code"""
+    return await power_tariffs_service.get_tariff_by_address(address,ort)##TODO fix this
+
