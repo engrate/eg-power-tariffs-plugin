@@ -118,6 +118,12 @@ DEV_MODE = env.EnvVarSpec(
     type=(bool, ...),
 )
 
+ADMIN_MODE = env.EnvVarSpec(
+    id="ADMIN_MODE",
+    parse=lambda x: x.lower() == "true",
+    default="false",
+    type=(bool, ...),
+)
 ## Postgres ##
 
 POSTGRES_DATABASE = env.EnvVarSpec(id="POSTGRES_DATABASE")
@@ -292,3 +298,5 @@ def must_load_metering_grid_areas() -> bool:
 def is_dev_mode()-> bool:
     return cast(bool, env.parse(DEV_MODE))
 
+def is_admin_mode()-> bool:
+    return cast(bool, env.parse(ADMIN_MODE))

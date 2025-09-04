@@ -15,13 +15,14 @@ from sqlalchemy.exc import IntegrityError
 from starlette.middleware.cors import CORSMiddleware
 
 import src.db as db
-from model import PowerTariffSpec, GridOperatorSpec, MeteringGridAreaSpec
-from repositories.orm_model import GridOperator, MeteringGridArea
-from src import env
 import src.exceptions as ex
-from src.exceptions import IllegalStateError
-from src.router import router
+from model import PowerTariffSpec, GridOperatorSpec, MeteringGridAreaSpec
+from routers.admin_router import router as admin_router
+from routers.dev_router import router as dev_router
+from routers.main_router import router as main_router
 from src import app
+from src import env
+from src.exceptions import IllegalStateError
 from src.repositories.power_tariffs_repository import repository
 
 logger = log.get_logger(__name__)
@@ -99,21 +100,15 @@ async def load_grid_operators():
 
     with open(Path("data/operators/operators.csv"), "r", encoding="utf-8") as file:
 
-        reader = csv.reader(file)
+        reader = csv.reader(file, delimiter=";")
         for row in reader:
-            if len(row) < 6:
+            if len(row) < 4:
                 logger.warning(f"Skipping malformed row: {row}")
                 continue
 
             # Extract fields
-            status = row[0].strip()
-            name = row[1].strip()
-            ediel_id = row[3].strip()
-
-            # Skip if not a grid operator (Nätägare)
-            if "Godkänd" not in status:
-                logger.warning(f"Skipping {name} - operator not approved")
-                continue
+            name = row[0].strip()
+            ediel_id = row[1].strip()
 
             # Check if operator already exists
             existing_operator = await repository.get_operator_by_ediel(int(ediel_id))
@@ -276,4 +271,9 @@ app.add_middleware(
 )
 
 app.router.lifespan_context = lifespan
-app.include_router(router)
+# Include routers based on environment
+app.include_router(main_router)
+if env.is_admin_mode():
+    app.include_router(admin_router)
+if env.is_dev_mode():
+    app.include_router(dev_router)
