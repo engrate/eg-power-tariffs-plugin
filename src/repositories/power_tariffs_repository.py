@@ -165,7 +165,7 @@ class PowerTariffRepository:
     async def get_operator_by_name(self, name:str, session:AsyncSession) -> GridOperatorSpec | None:
         """Get a specific provider by its name."""
         result = await session.execute(
-            select(GridOperator).where(GridOperator.name == name)
+            select(GridOperator).where(name == GridOperator.name)
         )
         operator = result.scalars().one_or_none()
         if operator is not None:

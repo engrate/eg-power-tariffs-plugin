@@ -101,6 +101,7 @@ async def load_grid_operators():
     with open(Path("data/operators/operators.csv"), "r", encoding="utf-8") as file:
 
         reader = csv.reader(file, delimiter=";")
+        next(reader)
         for row in reader:
             if len(row) < 4:
                 logger.warning(f"Skipping malformed row: {row}")

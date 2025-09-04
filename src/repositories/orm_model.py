@@ -66,7 +66,7 @@ class PowerTariff(BaseSQLModel):
 class MeteringGridArea(BaseSQLModel):
     __tablename__ = "metering_grid_areas"
 
-    code = Column(String(50), primary_key=True, unique=True)
+    code: Column[str] = Column(String(50), primary_key=True, unique=True)
     name = Column(String(255), nullable=False, unique=True)
     country_code = Column(String(5), nullable=False, unique=False, default="SE")
     metering_business_area = Column(String(5), nullable=False, unique=False)
