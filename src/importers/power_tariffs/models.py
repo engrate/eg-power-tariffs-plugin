@@ -5,12 +5,9 @@ from src.model import BuildingType
 
 
 class Interval(BaseModel):
-    from_: str
-    to: str
+    from_time: str
+    to_time: str
     multiplier: float
-
-    class Config:
-        fields = {"from_": "from"}
 
 
 class PowerTariffComposition(BaseModel):

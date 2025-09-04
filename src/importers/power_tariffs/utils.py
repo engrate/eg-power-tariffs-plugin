@@ -70,7 +70,7 @@ def parse_intervals(row) -> list[Interval]:
     if to1 == "0:00":
         to1 = "24:00"
     multiplier1 = float(row["Multiplier"])
-    intervals = [Interval(from_=from1, to=to1, multiplier=multiplier1)]
+    intervals = [Interval(from_time=from1, to_time=to1, multiplier=multiplier1)]
 
     from2 = row["From2"]
     if from2:
@@ -79,6 +79,6 @@ def parse_intervals(row) -> list[Interval]:
             to2 = "24:00"
 
         multiplier2 = float(row["Multiplier2"])
-        intervals.append(Interval(from_=from2, to=to2, multiplier=multiplier2))
+        intervals.append(Interval(from_time=from2, to_time=to2, multiplier=multiplier2))
 
     return intervals

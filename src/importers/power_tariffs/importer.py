@@ -156,8 +156,8 @@ async def _save_operator_tariffs(
                     priceIncVat=composition.price_inc_vat,
                     intervals=[
                         TimeIntervalSpec(
-                            from_time=interval.from_,
-                            to_time=interval.to,
+                            from_time=interval.from_time,
+                            to_time=interval.to_time,
                             multiplier=interval.multiplier,
                         )
                         for interval in composition.intervals
