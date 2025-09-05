@@ -57,8 +57,8 @@ class PowerTariff(BaseSQLModel):
         viewonly=True,
     )
 
-    mga_associations: Mapped[list["MeteringAreaByPowerTariffs"]] = relationship(
-        "MeteringAreaByPowerTariffs",
+    mga_associations: Mapped[list["MeteringGridAreaByPowerTariffs"]] = relationship(
+        "MeteringGridAreaByPowerTariffs",
         back_populates="power_tariff",
         cascade="all, delete-orphan",
     )
@@ -86,8 +86,8 @@ class MeteringGridArea(BaseSQLModel):
         viewonly=True,
     )
 
-    tariff_associations: Mapped[list["MeteringAreaByPowerTariffs"]] = relationship(
-        "MeteringAreaByPowerTariffs",
+    tariff_associations: Mapped[list["MeteringGridAreaByPowerTariffs"]] = relationship(
+        "MeteringGridAreaByPowerTariffs",
         back_populates="metering_grid_area",
         cascade="all, delete-orphan",
     )
@@ -97,7 +97,7 @@ def __repr__(self):
     return f"<MeteringGridArea(code={self.code}, name='{self.name}')>"
 
 
-class MeteringAreaByPowerTariffs(BaseSQLModel):
+class MeteringGridAreaByPowerTariffs(BaseSQLModel):
     __tablename__ = "metering_grid_area_x_power_tariff"
 
     uid = Column(UUID, primary_key=True, default=uuid7)

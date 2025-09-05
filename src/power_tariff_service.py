@@ -12,6 +12,12 @@ class PowerTariffService:
     def __init__(self, repository:PowerTariffRepository):
         self.repository = repository
 
+    async def get_power_tariffs_by_mga(self,country_code:str, mga_code:str) -> list[PowerTariffSpec]:
+        """
+        Get a specific power tariff by its metering grid area (MGA) code.
+        """
+        return await self.repository.get_power_tariff_by_mga(country_code=country_code, mga_code=mga_code)
+
     async def get_grid_operators(self) -> list[GridOperatorSpec]:
         """
         Get all grid operators.

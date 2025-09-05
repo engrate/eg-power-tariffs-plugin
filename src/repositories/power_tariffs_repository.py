@@ -1,13 +1,15 @@
 from uuid import UUID
 
 from engrate_sdk.utils import uuid
-from sqlalchemy import select
+from sqlalchemy import select, Sequence
+from sqlalchemy.dialects import postgresql
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
+from sqlalchemy.orm import selectinload, contains_eager
 
+from exceptions import MissingError
 from src.repositories.orm_model import (
     MeteringGridArea,
-    MeteringAreaByPowerTariffs,
+    MeteringGridAreaByPowerTariffs,
 )
 from src.db import with_session
 from src.exceptions import UnexpectedValue
@@ -48,7 +50,7 @@ class PowerTariffRepository:
             .options(
                 # If you need the association objects with voltage info, load them too
                 selectinload(PowerTariff.mga_associations)
-                .selectinload(MeteringAreaByPowerTariffs.metering_grid_area)
+                .selectinload(MeteringGridAreaByPowerTariffs.metering_grid_area)
                 .selectinload(MeteringGridArea.grid_operator)
             )
         )
@@ -61,8 +63,32 @@ class PowerTariffRepository:
         ]
 
     @with_session
+    async def get_power_tariff_by_mga(self, country_code: str, mga_code: str, session: AsyncSession) -> list[
+        PowerTariffSpec]:
+        """Get a specific power tariff by its metering grid area (MGA) code."""
+        query = (select(MeteringGridAreaByPowerTariffs)
+        .join(MeteringGridArea)
+        .join(PowerTariff)
+        .where(country_code == MeteringGridArea.country_code)
+        .where(MeteringGridArea.code == mga_code)
+        .options(
+            selectinload(MeteringGridAreaByPowerTariffs.metering_grid_area)
+            .selectinload(MeteringGridArea.grid_operator),
+            selectinload(MeteringGridAreaByPowerTariffs.power_tariff)))
+
+        result = await session.execute(query)
+        mga_by_power_tariff:Sequence[MeteringGridAreaByPowerTariffs] = result.scalars().all()
+
+        result = []
+        for mgbpt in mga_by_power_tariff:
+            power_tariff:PowerTariff = mgbpt.power_tariff
+            mga = mgbpt.metering_grid_area
+            result.append(PowerTariffRepository.power_tariff_to_spec(power_tariff,[PowerTariffRepository.mga_to_spec(mga)]))
+        return result
+
+    @with_session
     async def fetch_power_tariff_by_provider_name(
-        self, provider_name: str, session: AsyncSession
+            self, provider_name: str, session: AsyncSession
     ) -> PowerTariffSpec:
         """Fetches all power tariffs for a given provider."""
         # TODO find a better way to link providers comming from elomraden
@@ -84,7 +110,7 @@ class PowerTariffRepository:
 
     @with_session
     async def fetch_power_tariff_by_ediel(
-        self, ediel: int, session: AsyncSession
+            self, ediel: int, session: AsyncSession
     ) -> PowerTariffSpec:
         """Fetches all power tariffs for a given provider."""
         result = await session.execute(
@@ -105,7 +131,7 @@ class PowerTariffRepository:
 
     @with_session
     async def save_power_tariff(
-        self, power_tariff: PowerTariffSpec, session: AsyncSession
+            self, power_tariff: PowerTariffSpec, session: AsyncSession
     ) -> PowerTariffSpec:
         """Saves a power tariff to the database."""
         tariff = PowerTariff(
@@ -116,7 +142,7 @@ class PowerTariffRepository:
 
         mga_associations = []
         for mga_spec in power_tariff.metering_grid_areas:
-            association = MeteringAreaByPowerTariffs(
+            association = MeteringGridAreaByPowerTariffs(
                 mga_code=mga_spec.code,
                 tariff_uid=tariff.uid,
             )
@@ -128,7 +154,7 @@ class PowerTariffRepository:
 
     @with_session
     async def save_operator(
-        self, operator: GridOperatorSpec, session: AsyncSession
+            self, operator: GridOperatorSpec, session: AsyncSession
     ) -> GridOperatorSpec:
         """Saves a grid operator to the database."""
         db_operator = PowerTariffRepository.operator_from_spec(operator)
@@ -138,7 +164,7 @@ class PowerTariffRepository:
 
     @with_session
     async def get_operator(
-        self, uid: UUID, session: AsyncSession
+            self, uid: UUID, session: AsyncSession
     ) -> GridOperatorSpec | None:
         """Get a specific provider by its UUID."""
         result = await session.execute(
@@ -152,7 +178,7 @@ class PowerTariffRepository:
 
     @with_session
     async def get_operator_by_ediel(
-        self, ediel: int, session: AsyncSession
+            self, ediel: int, session: AsyncSession
     ) -> GridOperatorSpec | None:
         """Get a specific provider by its ediel id."""
         result = await session.execute(
@@ -166,7 +192,7 @@ class PowerTariffRepository:
 
     @with_session
     async def get_operator_by_name(
-        self, name: str, session: AsyncSession
+            self, name: str, session: AsyncSession
     ) -> GridOperatorSpec | None:
         """Get a specific provider by its name."""
         result = await session.execute(
@@ -190,7 +216,7 @@ class PowerTariffRepository:
 
     @with_session
     async def get_metering_grid_areas_by_operator(
-        self, operator: UUID, session: AsyncSession
+            self, operator: UUID, session: AsyncSession
     ) -> list[MeteringGridAreaSpec]:
         """Get a specific metering grid area by its operator."""
         result = await session.execute(
@@ -205,7 +231,7 @@ class PowerTariffRepository:
 
     @with_session
     async def save_metering_grid_area(
-        self, mga: MeteringGridAreaSpec, session: AsyncSession
+            self, mga: MeteringGridAreaSpec, session: AsyncSession
     ) -> MeteringGridAreaSpec:
         """Saves a metering grid area to the database."""
         db_mga = PowerTariffRepository.mga_from_spec(mga)
@@ -241,26 +267,7 @@ class PowerTariffRepository:
         )
 
     @staticmethod
-    def mga_to_spec(mga: MeteringGridArea) -> MeteringGridAreaSpec:
-        operator_spec: GridOperatorSpec = (
-            PowerTariffRepository.operator_as_spec(mga.grid_operator)
-            if mga.grid_operator
-            else None
-        )
-        power_tariffs = [
-            PowerTariffRepository.power_tariff_to_spec(pt) for pt in mga.power_tariffs
-        ]
-        return MeteringGridAreaSpec(
-            code=mga.code,
-            name=mga.name,
-            countryCode=mga.country_code,
-            meteringBusinessArea=mga.metering_business_area,
-            gridOperator=operator_spec.model_dump() if operator_spec else None,
-            powerTariffs=power_tariffs,
-        )
-
-    @staticmethod
-    def power_tariff_to_spec(power_tariff: PowerTariff) -> PowerTariffSpec:
+    def power_tariff_to_spec(power_tariff: PowerTariff, mga:list[MeteringGridAreaSpec]) -> PowerTariffSpec:
         tariff_spec = PowerTariffSpec(
             uid=str(power_tariff.uid),
             name=power_tariff.name,
@@ -274,9 +281,24 @@ class PowerTariffRepository:
             validTo=power_tariff.valid_to,
             voltage=power_tariff.voltage,
             compositions=power_tariff.compositions,
-            metering_grid_areas=[],
+            metering_grid_areas=mga
         )
         return tariff_spec
+
+    @staticmethod
+    def mga_to_spec(mga: MeteringGridArea) -> MeteringGridAreaSpec:
+        operator_spec: GridOperatorSpec = (
+            PowerTariffRepository.operator_as_spec(mga.grid_operator)
+            if mga.grid_operator
+            else None
+        )
+        return MeteringGridAreaSpec(
+            code=mga.code,
+            name=mga.name,
+            countryCode=mga.country_code,
+            meteringBusinessArea=mga.metering_business_area,
+            gridOperator=operator_spec.model_dump() if operator_spec else None,
+        )
 
 
 repository = PowerTariffRepository()

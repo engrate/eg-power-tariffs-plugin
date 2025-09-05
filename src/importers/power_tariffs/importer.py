@@ -129,7 +129,7 @@ async def load_tariffs_definitions():
 
         operator_already_has_tariffs = False
         for metering_grid_area in metering_grid_areas:
-            if len(metering_grid_area.power_tariffs) > 0:
+            if metering_grid_area.power_tariffs:
                 operator_already_has_tariffs = True
             break
         if operator_already_has_tariffs:

@@ -79,7 +79,7 @@ class MeteringGridAreaSpec(BaseModel):
     country_code: str = Field(default="SE", alias="countryCode")
     metering_business_area: str = Field(..., alias="meteringBusinessArea")
     grid_operator: GridOperatorSpec = Field(..., alias="gridOperator")
-    power_tariffs: list[PowerTariffSpec] = Field(default=[], alias="powerTariffs")
+    power_tariffs: Optional[list[PowerTariffSpec]] = Field(default=None, alias="powerTariffs")
 
     class Config:
         populate_by_name = True
