@@ -15,9 +15,9 @@ from starlette.middleware.cors import CORSMiddleware
 
 import src.db as db
 import src.exceptions as ex
-from routers.admin_router import router as admin_router
-from routers.dev_router import router as dev_router
-from routers.main_router import router as main_router
+from src.routers.admin_router import router as admin_router
+from src.routers.dev_router import router as dev_router
+from src.routers.main_router import router as main_router
 from src import app
 from src import env
 from src.exceptions import IllegalStateError

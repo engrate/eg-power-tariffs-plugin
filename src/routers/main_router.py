@@ -1,14 +1,12 @@
 from engrate_sdk.utils import log
 from fastapi import APIRouter
 
-import env
-from model import PowerTariffSpec
-from utils import PowerTariffSvc, CountryCode
+from src.model import PowerTariffSpec
+from src.utils import PowerTariffSvc, CountryCode
 
 logger = log.get_logger(__name__)
 router = APIRouter(
-    tags=["Power Tariffs API"],
-    include_in_schema=True,
+    tags=["Power Tariffs API"], include_in_schema=True, prefix="/power-tariffs"
 )
 
 
@@ -16,7 +14,6 @@ router = APIRouter(
     "/{country_code}/mga/{mga_code}",
     response_model=list[PowerTariffSpec],
     summary="Returns a grid area by postal code",
-    include_in_schema=env.is_dev_mode(),
     response_model_exclude_none=True,
 )
 async def power_tariff_by_mga(
@@ -30,7 +27,6 @@ async def power_tariff_by_mga(
     "/{country_code}/postal-code/{postal_code}",
     response_model=list[PowerTariffSpec],
     summary="Returns a grid area by postal code",
-    include_in_schema=env.is_dev_mode(),
     response_model_exclude_none=True,
 )
 async def power_tariff_by_postal_code(
@@ -46,7 +42,6 @@ async def power_tariff_by_postal_code(
     "/{country_code}/lat/{lat}/long/{long}",
     response_model=list[PowerTariffSpec],
     summary="Returns a power tariffs by latitude and longitude",
-    include_in_schema=env.is_dev_mode(),
     response_model_exclude_none=True,
 )
 async def power_tariff_by_coordinate(
@@ -65,7 +60,6 @@ async def power_tariff_by_coordinate(
     "/{country_code}/address/{address}/city/{city}",
     response_model=list[PowerTariffSpec],
     summary="Returns a power tariffs by address",
-    include_in_schema=env.is_dev_mode(),
     response_model_exclude_none=True,
 )
 async def power_tariff_by_address(

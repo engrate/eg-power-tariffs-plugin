@@ -2,11 +2,9 @@ from uuid import UUID
 
 from engrate_sdk.utils import uuid
 from sqlalchemy import select, Sequence
-from sqlalchemy.dialects import postgresql
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload, contains_eager
+from sqlalchemy.orm import selectinload
 
-from exceptions import MissingError
 from src.repositories.orm_model import (
     MeteringGridArea,
     MeteringGridAreaByPowerTariffs,

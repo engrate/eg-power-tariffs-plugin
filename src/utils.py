@@ -2,9 +2,9 @@ from typing import Annotated
 
 from fastapi import Depends
 
-from exceptions import MissingError
-from power_tariff_service import PowerTariffService
-from repositories.power_tariffs_repository import PowerTariffRepository
+from src.exceptions import MissingError
+from src.power_tariff_service import PowerTariffService
+from src.repositories.power_tariffs_repository import PowerTariffRepository
 from engrate_sdk.utils import log
 
 logger = log.get_logger(__name__)
