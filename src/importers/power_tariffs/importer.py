@@ -129,7 +129,10 @@ async def load_tariffs_definitions():
 
         operator_already_has_tariffs = False
         for metering_grid_area in metering_grid_areas:
-            if metering_grid_area.power_tariffs:
+            power_tariff = await repository.get_power_tariff_by_mga(
+                metering_grid_area.country_code, metering_grid_area.code
+            )
+            if power_tariff:
                 operator_already_has_tariffs = True
             break
         if operator_already_has_tariffs:
