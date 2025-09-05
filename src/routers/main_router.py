@@ -3,7 +3,6 @@ from fastapi import APIRouter
 
 import env
 from model import PowerTariffSpec
-from src.clients import elomraden_model
 from utils import PowerTariffSvc, CountryCode
 
 logger = log.get_logger(__name__)
@@ -63,7 +62,7 @@ async def power_tariff_by_coordinate(
 
 
 @router.get(
-    "/{country_code}/address/{address}/town/{town}",
+    "/{country_code}/address/{address}/city/{city}",
     response_model=list[PowerTariffSpec],
     summary="Returns a power tariffs by address",
     include_in_schema=env.is_dev_mode(),
@@ -73,9 +72,9 @@ async def power_tariff_by_address(
     power_tariffs_service: PowerTariffSvc,
     country_code: CountryCode,
     address: str,
-    town: str,
+    city: str,
 ):
     """Fetches power tariffs by address"""
     return await power_tariffs_service.get_power_tariffs_by_address(
-        country_code, address, town
+        country_code, address, city
     )
