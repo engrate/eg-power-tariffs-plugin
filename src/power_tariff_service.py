@@ -1,6 +1,5 @@
-from src.model import GridOperatorSpec
+from src.model import GridOperatorSpec, PowerTariffSpec
 from src.clients import elomraden
-from src.model import PowerTariffSpec
 from src.repositories.power_tariffs_repository import PowerTariffRepository
 
 
@@ -9,21 +8,25 @@ class PowerTariffService:
     Service class for managing power tariffs.
     """
 
-    def __init__(self, repository:PowerTariffRepository):
+    def __init__(self, repository: PowerTariffRepository):
         self.repository = repository
 
-    async def get_power_tariffs_by_mga(self,country_code:str, mga_code:str) -> list[PowerTariffSpec]:
+    async def get_power_tariffs_by_mga(
+        self, country_code: str, mga_code: str
+    ) -> list[PowerTariffSpec]:
         """
         Get a specific power tariff by its metering grid area (MGA) code.
         """
-        return await self.repository.get_power_tariff_by_mga(country_code=country_code, mga_code=mga_code)
+        return await self.repository.get_power_tariff_by_mga(
+            country_code=country_code, mga_code=mga_code
+        )
 
     async def get_grid_operators(self) -> list[GridOperatorSpec]:
         """
         Get all grid operators.
         """
         return await self.repository.list_operators()
-    
+
     async def get_tariffs(self) -> list[PowerTariffSpec]:
         """
         Get all power tariffs definitions.
@@ -34,7 +37,9 @@ class PowerTariffService:
         """
         Get a specific power tariff by provider
         """
-        return await self.repository.fetch_power_tariff_by_provider_id(provider_id=provider_id)
+        return await self.repository.fetch_power_tariff_by_provider_id(
+            provider_id=provider_id
+        )
 
     async def get_tariff_by_ediel(self, ediel) -> PowerTariffSpec:
         """
@@ -48,19 +53,21 @@ class PowerTariffService:
         """
         return await self.repository.fetch_power_tariff_by_provider_name(name)
 
-    async def get_tariff_by_address(self, address,ort) -> PowerTariffSpec:
+    async def get_tariff_by_address(self, address, ort) -> PowerTariffSpec:
         """
         Get a specific power tariff by its postal address.
         """
-        area = await elomraden.get_area_by_address(address,ort)
+        area = await elomraden.get_area_by_address(address, ort)
         tariff = await self.get_tariff_by_ediel(area.company.ediel)
         return tariff
 
-    async def get_tariff_by_postal_code(self, postal_code) -> PowerTariffSpec:
+    async def get_power_tariffs_by_coordinates(
+        self, country_code: str, lat: float, long: float
+    ) -> list[PowerTariffSpec]:
         """
         Get a specific power tariff by its postal code.
         """
-        area = await elomraden.get_area_by_postnumber(postal_code)
-        tariff = await self.get_tariff_by_ediel(area.company.ediel)
-        return tariff
-
+        area = await elomraden.get_area_by_coordinates(lat=str(lat), lon=str(long))
+        return await self.get_power_tariffs_by_mga(
+            country_code=country_code, mga_code=area.area_code
+        )

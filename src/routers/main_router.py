@@ -13,38 +13,64 @@ router = APIRouter(
 )
 
 
-@router.get("/{country_code}/mga/{mga_code}",
-            response_model=list[PowerTariffSpec],
-            summary="Returns a grid area by postal code",
-            include_in_schema=env.is_dev_mode(),
-            response_model_exclude_none=True)
-async def power_tariff_by_mga(power_tariffs_service: PowerTariffSvc, country_code:CountryCode, mga_code:str):
+@router.get(
+    "/{country_code}/mga/{mga_code}",
+    response_model=list[PowerTariffSpec],
+    summary="Returns a grid area by postal code",
+    include_in_schema=env.is_dev_mode(),
+    response_model_exclude_none=True,
+)
+async def power_tariff_by_mga(
+    power_tariffs_service: PowerTariffSvc, country_code: CountryCode, mga_code: str
+):
     """Fetches power tariffs by mga code"""
-    return await power_tariffs_service.get_power_tariffs_by_mga(country_code,mga_code)
+    return await power_tariffs_service.get_power_tariffs_by_mga(country_code, mga_code)
 
-@router.get("/{country-code}/postal-code/{postal-code}",
-            response_model=elomraden_model.GridArea,
-            summary="Returns a grid area by postal code",
-            include_in_schema=env.is_dev_mode())
-async def power_tariff_by_postal_code(power_tariffs_service: PowerTariffSvc, countr_code:str, postal_code:int):
+
+@router.get(
+    "/{country-code}/postal-code/{postal-code}",
+    response_model=elomraden_model.GridArea,
+    summary="Returns a grid area by postal code",
+    include_in_schema=env.is_dev_mode(),
+)
+async def power_tariff_by_postal_code(
+    power_tariffs_service: PowerTariffSvc, countr_code: str, postal_code: int
+):
     """Fetches power tariffs by mga code"""
-    return await power_tariffs_service.get_tariff_by_postal_code(postal_code)##TODO fix this
+    return await power_tariffs_service.get_tariff_by_postal_code(
+        postal_code
+    )  ##TODO fix this
 
-@router.get("/{country-code}/lat/{lat}/long/{long}",
-            response_model=elomraden_model.GridArea,
-            summary="Returns a grid area by postal code",
-            include_in_schema=env.is_dev_mode())
-async def power_tariff_by_coordinate(power_tariffs_service: PowerTariffSvc, countr_code:str, lat:str,long:str):
+
+@router.get(
+    "/{country_code}/lat/{lat}/long/{long}",
+    response_model=list[PowerTariffSpec],
+    summary="Returns a grid area by postal code",
+    include_in_schema=env.is_dev_mode(),
+    response_model_exclude_none=True,
+)
+async def power_tariff_by_coordinate(
+    power_tariffs_service: PowerTariffSvc,
+    country_code: CountryCode,
+    lat: float,
+    long: float,
+):
     """Fetches power tariffs by mga code"""
-    return await power_tariffs_service.get_tariff_by_postal_code(lat)##TODO fix this
+    return await power_tariffs_service.get_power_tariffs_by_coordinates(
+        country_code, lat, long
+    )
 
-@router.get("/{country-code}/address/{address}/ort/{ort}",
-            response_model=elomraden_model.GridArea,
-            summary="Returns a grid area by postal code",
-            include_in_schema=env.is_dev_mode())
-async def power_tariff_by_address(power_tariffs_service: PowerTariffSvc, address:str, ort:str):
+
+@router.get(
+    "/{country-code}/address/{address}/ort/{ort}",
+    response_model=elomraden_model.GridArea,
+    summary="Returns a grid area by postal code",
+    include_in_schema=env.is_dev_mode(),
+)
+async def power_tariff_by_address(
+    power_tariffs_service: PowerTariffSvc, address: str, ort: str
+):
     """Fetches power tariffs by mga code"""
-    return await power_tariffs_service.get_tariff_by_address(address,ort)##TODO fix this
-
-
-
+    return await power_tariffs_service.get_tariff_by_address(
+        address, ort
+    )  ##TODO fix this
