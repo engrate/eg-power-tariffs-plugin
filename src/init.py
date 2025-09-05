@@ -15,7 +15,7 @@ def init() -> int | None:
         return 1
     init_db()
     rich.traceback.install(show_locals=True)
-    log.init(env.get_log_level())
+    log.init(env.get_log_level(), json_format=not env.is_dev_mode())
     return None
 
 
@@ -40,4 +40,3 @@ async def set_feature_flags(
 def init_db():
     """Initializes the application."""
     rich.traceback.install(show_locals=True)
-    log.init(env.get_log_level())

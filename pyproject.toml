@@ -12,7 +12,6 @@ dependencies = [
     "asyncpg ~= 0.29.0",
     "greenlet ~= 3.0.0",
     "engrate-sdk ~= 0.0.21",
-    "engrate-sdk",
     "prometheus-client>=0.22.1",
     "prometheus-fastapi-instrumentator>=7.1.0",
 ]
