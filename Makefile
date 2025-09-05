@@ -210,3 +210,39 @@ push-staging-image:
 .PHONY: promote-staging-to-sandbox-image
 promote-staging-to-sandbox-image: ## Promote backend Docker image from staging to sandbox (provide TAG: make promote-staging-to-sandbox-image TAG=exampletag)
 	@bin/promote-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-sandbox-registry/power-tariffs $(TAG)
+
+.PHONY: install-hooks
+install-hooks:
+	@echo "Installing pre-commit hook..."
+	@mkdir -p .git/hooks
+	@cat > .git/hooks/pre-commit << 'EOF'
+	#!/bin/sh
+
+	# Run ruff format before commit
+	echo "Running ruff format..."
+	uv run ruff format
+
+	# Stage any files that were formatted
+	git add -u
+
+	echo "✓ Formatting complete and changes staged."
+	EOF
+	@chmod +x .git/hooks/pre-commit
+	@echo "✓ Pre-commit hook installed successfully!"
+
+.PHONY: uninstall-hooks
+uninstall-hooks:
+	@echo "Removing pre-commit hook..."
+	@rm -f .git/hooks/pre-commit
+	@echo "✓ Pre-commit hook removed!"
+
+.PHONY: check-hooks
+check-hooks:
+	@if [ -f .git/hooks/pre-commit ]; then \
+		echo "✓ Pre-commit hook is installed"; \
+		echo "Content:"; \
+		cat .git/hooks/pre-commit; \
+	else \
+		echo "✗ Pre-commit hook is not installed"; \
+		echo "Run 'make install-hooks' to install"; \
+	fi
