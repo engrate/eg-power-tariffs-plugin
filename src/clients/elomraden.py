@@ -72,7 +72,6 @@ async def get_area_by_postnumber(postnumber: int) -> GridArea:
         if pnr_data.get("success") != 1:
             error = pnr_data.get("error", {})
             __handle_error_response(error, postnumber)
-        print(data)
         items = pnr_data.get("item", [])  # TODO treat this as an array
         if not items:
             ##Not sure if this is possible though
@@ -80,7 +79,6 @@ async def get_area_by_postnumber(postnumber: int) -> GridArea:
                 f"No grid area information found in the response for postnumber {postnumber}"
             )
             return None
-        print(f"items: {len(items)}")
         item = items[0]
         elnat = item.get("elnat", {})
         geo = item.get("geografi", {})

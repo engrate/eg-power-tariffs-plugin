@@ -74,3 +74,10 @@ class PowerTariffService:
         return await self.get_power_tariffs_by_mga(
             country_code=country_code, mga_code=area.area_code
         )
+
+    async def get_tariff_by_postal_code(self, country_code,postal_code) -> list[PowerTariffSpec]:
+        """
+        Get a specific power tariff by its postal code.
+        """
+        area = await elomraden.get_area_by_postnumber(postal_code)
+        return await self.get_power_tariffs_by_mga(country_code, area.area_code)

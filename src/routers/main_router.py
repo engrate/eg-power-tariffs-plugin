@@ -28,18 +28,17 @@ async def power_tariff_by_mga(
 
 
 @router.get(
-    "/{country-code}/postal-code/{postal-code}",
-    response_model=elomraden_model.GridArea,
+    "/{country_code}/postal-code/{postal_code}",
+    response_model=list[PowerTariffSpec],
     summary="Returns a grid area by postal code",
     include_in_schema=env.is_dev_mode(),
+    response_model_exclude_none=True
 )
 async def power_tariff_by_postal_code(
-    power_tariffs_service: PowerTariffSvc, countr_code: str, postal_code: int
+    power_tariffs_service: PowerTariffSvc, countr_code: CountryCode, postal_code: int
 ):
     """Fetches power tariffs by mga code"""
-    return await power_tariffs_service.get_tariff_by_postal_code(
-        postal_code
-    )  ##TODO fix this
+    return await power_tariffs_service.get_tariff_by_postal_code(countr_code, postal_code)
 
 
 @router.get(
