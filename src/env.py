@@ -191,6 +191,7 @@ def validate() -> bool:
         ]
     )
 
+
 def dump():
     """Dumps the environment variables to a JSON string."""
     env_vars = {
@@ -210,6 +211,7 @@ def dump():
         "AUTO_REGISTER": get_auto_register(),
     }
     print(env_vars)
+
 
 def get_slack_webhook_url() -> str:
     return cast(str, env.parse(SLACK_WEBHOOK_URL))
@@ -286,17 +288,22 @@ def get_registrar_url():
 def get_auto_register() -> bool:
     return cast(bool, env.parse(AUTO_REGISTER))
 
+
 def must_load_tariffs_definitions() -> bool:
     return cast(bool, env.parse(LOAD_TARIFFS_DEFINITIONS))
+
 
 def must_load_operators() -> bool:
     return cast(bool, env.parse(LOAD_OPERATORS))
 
+
 def must_load_metering_grid_areas() -> bool:
     return cast(bool, env.parse(LOAD_METERING_GRID_AREAS))
 
-def is_dev_mode()-> bool:
+
+def is_dev_mode() -> bool:
     return cast(bool, env.parse(DEV_MODE))
 
-def is_admin_mode()-> bool:
+
+def is_admin_mode() -> bool:
     return cast(bool, env.parse(ADMIN_MODE))

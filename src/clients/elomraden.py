@@ -16,12 +16,14 @@ __AUTH_SUFFIX = f"user/{env.get_elomraden_user()}/key/{env.get_elomraden_apikey(
 
 logger = log.get_logger(__name__)
 
+
 ## Types ##
 class ResponseFormat(Enum):
     JSON = "json"
     XML = "xml"
 
-async def get_area_by_address(address:str, ort:str) -> GridArea:
+
+async def get_area_by_address(address: str, ort: str) -> GridArea:
     """Gets an electricity area by address."""
     async with AsyncClient() as client:
         resp = await client.get(__address_lookup_path(address, ort))
@@ -57,7 +59,8 @@ async def get_area_by_address(address:str, ort:str) -> GridArea:
 
         return grid_area
 
-async def get_area_by_postnumber(postnumber:int) -> GridArea:
+
+async def get_area_by_postnumber(postnumber: int) -> GridArea:
     """Gets an electricity area by postnumber."""
 
     async with AsyncClient() as client:
@@ -68,14 +71,16 @@ async def get_area_by_postnumber(postnumber:int) -> GridArea:
         pnr_data = data.get("natomradePostnummer", {})
         if pnr_data.get("success") != 1:
             error = pnr_data.get("error", {})
-            __handle_error_response(error,postnumber)
+            __handle_error_response(error, postnumber)
         print(data)
-        items = pnr_data.get("item", []) #TODO treat this as an array
+        items = pnr_data.get("item", [])  # TODO treat this as an array
         if not items:
             ##Not sure if this is possible though
-            logger.warning(f"No grid area information found in the response for postnumber {postnumber}")
+            logger.warning(
+                f"No grid area information found in the response for postnumber {postnumber}"
+            )
             return None
-        print(f'items: {len(items)}')
+        print(f"items: {len(items)}")
         item = items[0]
         elnat = item.get("elnat", {})
         geo = item.get("geografi", {})
@@ -100,14 +105,17 @@ async def get_area_by_postnumber(postnumber:int) -> GridArea:
 
         return grid_area
 
-async def get_area_by_coordinates(lat:str, lon:str) -> GridArea:
+
+async def get_area_by_coordinates(lat: str, lon: str) -> GridArea:
     """Gets an electricity area by coordinates."""
     async with AsyncClient() as client:
         resp = await client.get(__coordinates_lookup_path(lat, lon))
         resp.raise_for_status()
         data = resp.json()
         # Check biz errors
-        area_data = data.get("elomradeAdress", {}) ## Unfortunately the json atts have different names for the same value depending on the endpoint
+        area_data = data.get(
+            "elomradeAdress", {}
+        )  ## Unfortunately the json atts have different names for the same value depending on the endpoint
         if area_data.get("success") != 1:
             error = area_data.get("error", {})
             __handle_error_response(error, "latitude:{lat}, longitude:{lon}")
@@ -135,7 +143,8 @@ async def get_area_by_coordinates(lat:str, lon:str) -> GridArea:
 
         return grid_area
 
-async def get_area_information(area:str) -> GridCompany:
+
+async def get_area_information(area: str) -> GridCompany:
     """Gets information about an electricity area."""
     async with AsyncClient() as client:
         resp = await client.get(__area_lookup_path(area))
@@ -146,13 +155,13 @@ async def get_area_information(area:str) -> GridCompany:
             error = data.get("error", {})
             __handle_error_response(error, area)
 
-        _input = data.get('input',{})
-        omrade= data.get('omrade',{})
+        _input = data.get("input", {})
+        omrade = data.get("omrade", {})
 
         # Map the fields from the API response to our model
         grid_area = GridArea(
             area_name=omrade.get("namn", ""),
-            area_code= _input.get('omrade', ""),
+            area_code=_input.get("omrade", ""),
             zone=int(omrade.get("snitt", 0)),
             company=GridCompany(
                 name=omrade.get("bolag", ""),
@@ -163,19 +172,30 @@ async def get_area_information(area:str) -> GridCompany:
         )
         return grid_area
 
-def __postcode_lookup_path(postnumber:int, output: ResponseFormat = ResponseFormat.JSON.value) -> str:
+
+def __postcode_lookup_path(
+    postnumber: int, output: ResponseFormat = ResponseFormat.JSON.value
+) -> str:
     return f"{__BASE_LOOKUP_URL}/postnr/postnummer/{postnumber}/output/{output}/{__AUTH_SUFFIX}"
 
-def __address_lookup_path(street:str, ort:str, output: ResponseFormat = ResponseFormat.JSON) -> str:
+
+def __address_lookup_path(
+    street: str, ort: str, output: ResponseFormat = ResponseFormat.JSON
+) -> str:
     return f"{__BASE_LOOKUP_URL}/adress/adress/{street}/ort/{ort}/output/{output.value}/{__AUTH_SUFFIX}"
 
-def __coordinates_lookup_path(lat:float, lon:float, output: ResponseFormat = ResponseFormat.JSON) -> str:
+
+def __coordinates_lookup_path(
+    lat: float, lon: float, output: ResponseFormat = ResponseFormat.JSON
+) -> str:
     return f"{__BASE_LOOKUP_URL}/koord/latitud/{lat}/longitud/{lon}/output/{output.value}/{__AUTH_SUFFIX}"
 
-def __area_lookup_path(area:str, output: ResponseFormat = ResponseFormat.JSON) -> str:
+
+def __area_lookup_path(area: str, output: ResponseFormat = ResponseFormat.JSON) -> str:
     return f"{__BASE_LOOKUP_URL}/natomrade/omrade/{area}/output/{output.value}/{__AUTH_SUFFIX}"
 
-def __handle_error_response(error,arg):
+
+def __handle_error_response(error, arg):
     """Handles error responses from the API."""
     err_code = error.get("errorCode", 0)
     err_msg = error.get("errorString", "Unknown error")

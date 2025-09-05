@@ -3,8 +3,10 @@ from engrate_sdk.utils import log
 
 logger = log.get_logger(__name__)
 
+
 class ControlledException(Exception):
     """Base class for known, controlled exceptions."""
+
     pass
 
 
@@ -27,14 +29,16 @@ class NotEnabledError(ControlledException):
 class IllegalArgumentError(ControlledException):
     """Illegal argument provided"""
 
-    def __init__(self,msg: str = None):
+    def __init__(self, msg: str = None):
         super().__init__(f"Illegal argument provided: {msg}")
+
 
 class IllegalStateError(ControlledException):
     """state of the system is not valid for the operation"""
 
-    def __init__(self,str):
+    def __init__(self, str):
         super().__init__(f"System is in an illegal state for the operation: {str}")
+
 
 class UnexpectedValue(ControlledException):
     """Unexpected value provided. Mostly for serialization errors."""
@@ -42,6 +46,7 @@ class UnexpectedValue(ControlledException):
     def __init__(self, details: str):
         self.details = details
         super().__init__(f"Unexpected value provided: {details}")
+
 
 class UncontrolledException(Exception):
     """Base class for unknown, uncontrolled exceptions.
