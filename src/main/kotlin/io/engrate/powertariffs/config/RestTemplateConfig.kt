@@ -13,9 +13,12 @@ import org.springframework.web.client.RestTemplate
 @ConfigurationProperties(prefix = "elomraden")
 data class ElomradenProperties(val user: String, val apikey: String, val baseUrl: String)
 
+@ConfigurationProperties(prefix = "plugin-registrar")
+data class PluginRegistrarProperties(val url: String) {}
+
 @Suppress("unused")
 @Configuration
-@EnableConfigurationProperties(ElomradenProperties::class)
+@EnableConfigurationProperties(ElomradenProperties::class, PluginRegistrarProperties::class)
 class RestTemplateConfig {
     @Bean
     fun elomradenRestTemplate(
@@ -29,6 +32,23 @@ class RestTemplateConfig {
                 MappingJackson2HttpMessageConverter(
                     objectMapperBuilder
                         .propertyNamingStrategy(PropertyNamingStrategies.LOWER_CAMEL_CASE)
+                        .build()
+                )
+            )
+            .build()
+
+    @Bean
+    fun pluginRegistrarRestTemplate(
+        builder: RestTemplateBuilder,
+        objectMapperBuilder: Jackson2ObjectMapperBuilder,
+        registrarProperties: PluginRegistrarProperties,
+    ): RestTemplate =
+        builder
+            .rootUri(registrarProperties.url)
+            .messageConverters(
+                MappingJackson2HttpMessageConverter(
+                    objectMapperBuilder
+                        .propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
                         .build()
                 )
             )

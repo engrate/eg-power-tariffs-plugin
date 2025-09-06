@@ -1,0 +1,15 @@
+-- Rollback script for V1__Initial_PowerTariff_schema
+
+-- Drop indexes first
+DROP INDEX IF EXISTS ix_metering_grid_area_x_power_tariff_mga_tariff;
+DROP INDEX IF EXISTS ix_metering_grid_area_x_power_tariff_tariff_uid;
+DROP INDEX IF EXISTS ix_metering_grid_area_x_power_tariff_mga_code;
+DROP INDEX IF EXISTS ix_metering_grid_areas_grid_operator_uid;
+DROP INDEX IF EXISTS ix_grid_operators_ediel;
+DROP INDEX IF EXISTS ix_grid_operators_name;
+
+-- Drop tables in reverse order (respecting foreign key dependencies)
+DROP TABLE IF EXISTS metering_grid_area_x_power_tariff CASCADE;
+DROP TABLE IF EXISTS power_tariffs CASCADE;
+DROP TABLE IF EXISTS metering_grid_areas CASCADE;
+DROP TABLE IF EXISTS grid_operators CASCADE;

@@ -2,7 +2,32 @@ logging:
   level:
     io.engrate: DEBUG
 
+spring:
+  application:
+    name: power-tariffs
+  datasource:
+    url: jdbc:postgresql://localhost:5435/power-tariffs
+    username: power-tariffs
+    password: password
+  jpa:
+    show-sql: true               # optional, to show SQL in logs
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5435/power-tariffs
+    user: power-tariffs
+    password: password
+    locations: classpath:db/migrations
+
 elomraden:
   base-url: https://elomraden.se/api/lookup/typ # Replace with actual URL
   user: engrate_test
   apikey: 6d60c47f1d2f79aa2088942bd9eb
+
+plugin-registrar:
+  url: http://localhost:8080
+
+data-importer:
+  load-tariffs-definitions: true
+  load-grid-operators: true
+  load-metering-grid-areas: true

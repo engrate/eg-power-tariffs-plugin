@@ -17,13 +17,13 @@ java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
 repositories { mavenCentral() }
 
 dependencies {
-    implementation(libs.spring.boot.starter.web)
-    implementation(libs.spring.aop)
+    implementation(libs.bundles.spring)
     implementation(libs.jackson)
     implementation(libs.kotlin.reflect)
-    // DB
+    implementation(libs.bundles.db)
     implementation(libs.spring.boot.starter.data.jpa)
-    implementation("org.postgresql:postgresql:42.7.3")
+    implementation(libs.logstash)
+    implementation(libs.bundles.instrumentation)
 
     testImplementation(libs.spring.boot.starter.test)
 }
@@ -37,4 +37,10 @@ tasks.test { useJUnitPlatform() }
 tasks.withType<Jar> {
     // Exclude application-dev.yaml from resources in the JAR
     exclude("**/application-dev.yaml")
+}
+
+tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+    archiveBaseName.set("app")
+    archiveVersion.set("")
+    archiveClassifier.set("")
 }

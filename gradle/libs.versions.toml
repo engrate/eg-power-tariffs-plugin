@@ -1,17 +1,27 @@
 [versions]
 kotlin = "2.0.21"
+# Check spring BOM https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/3.3.5/spring-boot-dependencies-3.3.5.pom
 spring-boot = "3.3.5"
 
 [libraries]
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 spring-aop = { module = "org.springframework.boot:spring-boot-starter-aop" }
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
-jackson = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+postgresql = { module = "org.postgresql:postgresql" }
+jackson = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version = "2.17.2" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version = "2.0.21" }
+flyway = { module = "org.flywaydb:flyway-database-postgresql" }
+logstash = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.1" }
+spring-boot-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+prometheus = { module = "io.micrometer:micrometer-registry-prometheus" }
+
 
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 [bundles]
+spring = ["spring-boot-starter-web", "spring-boot-starter-data-jpa", "spring-aop"]
+db = ["spring-boot-starter-data-jpa", "postgresql", "flyway"]
+instrumentation = ["spring-boot-actuator", "prometheus"]
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

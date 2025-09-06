@@ -1,0 +1,45 @@
+<configuration>
+    <!-- Default/prod structured logging -->
+    <springProfile name="!dev">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                <providers>
+                    <timestamp>
+                        <fieldName>timestamp</fieldName>
+                    </timestamp>
+                    <pattern>
+                        <pattern>
+                            {
+                            "level": "%level",
+                            "thread": "%thread",
+                            "logger": "%logger",
+                            "message": "%message",
+                            "exception": "%exception"
+                            }
+                        </pattern>
+                    </pattern>
+                    <arguments/>
+                    <mdc/>
+                    <stackTraceField>
+                        <fieldName>exception</fieldName>
+                    </stackTraceField>
+                </providers>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+    <!-- Dev profile, pretty colored logs -->
+    <springProfile name="dev">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{20}) - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="DEBUG">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>

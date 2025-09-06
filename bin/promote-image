@@ -1,0 +1,25 @@
+#!/bin/bash
+set -eu
+[ "${TRACE:-}" = true ] && set -x
+
+# Usage: ./promote-image <SRC_REPO> <DEST_REPO> <IMAGE_TAG>
+# Example:
+#   ./promote-image 1234567890.dkr.ecr.us-west-2.amazonaws.com/dev-app 1234567890.dkr.ecr.us-west-2.amazonaws.com/prod-app mytag
+# Make sure you are logged in to both source and destination registries.
+
+docker buildx inspect eg-builder > /dev/null 2>&1 || docker buildx create --name eg-builder --bootstrap
+
+src_repo="$1"
+dest_repo="$2"
+image_tag="$3"
+
+src_image="${src_repo}:${image_tag}"
+dest_image="${dest_repo}:${image_tag}"
+
+echo "Pulling image: ${src_image}"
+docker pull "${src_image}"
+
+echo "Creating image in destination: ${dest_image}"
+docker buildx imagetools create -t "${dest_image}" "${src_image}"
+
+echo "Image promoted from ${src_image} to ${dest_image}."

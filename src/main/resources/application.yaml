@@ -1,27 +1,79 @@
 server:
-  port: 8080
+  port: 3011
+
+logging:
+  level:
+    root: INFO
 
 spring:
   application:
     name: power-tariffs
   datasource:
-    url: jdbc:postgresql://localhost:5432/power-tariffs
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
     driver-class-name: org.postgresql.Driver
-    username: engrate
-    password: password
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: update           # or create, update, create-drop, validate
-    show-sql: true               # optional, to show SQL in logs
+      ddl-auto: validate
+    show-sql: false
   jackson:
     property-naming-strategy: SNAKE_CASE
     deserialization:
       fail-on-unknown-properties: false
-logging:
-  level:
-    root: INFO
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+    user: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    locations: classpath:db/migrations
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+
 
 elomraden:
   base-url: ${ELOMRADEN_BASE_URL}
   user: ${ELOMRADEN_USER}
   apikey: ${ELOMRADEN_APIKEY}
+
+plugin-registrar:
+  url: ${REGISTRAR_URL}
+
+data-importer:
+  load-tariffs-definitions: ${LOAD_TARIFFS_DEFINITIONS}
+  load-grid-operators: ${LOAD_OPERATORS}
+  load-metering-grid-areas: ${LOAD_METERING_GRID_AREAS}
+
+
+plugin-manifest:
+  name: "power-tariffs"
+  author: "Engrate"
+  description: "Provides the definition of the power tariffs based on grid distribution areas"
+  product_category: "market_intelligence"
+  extensions:
+    markets:
+      - "*"
+      - "nl"
+      - "de"
+      - "se"
+  plugin_metadata:
+    display_name: "Power Tariffs"
+    service_name: "power-tariffs"
+    url_prefix: "power-tariffs"
+    fav_icon: ""
+    image: ""
+    port: "3011"
+    flavors:
+      - "external-api"
+    traits:
+      - "storage"
+
+
