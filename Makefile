@@ -215,18 +215,16 @@ promote-staging-to-sandbox-image: ## Promote backend Docker image from staging t
 install-hooks:
 	@echo "Installing pre-commit hook..."
 	@mkdir -p .git/hooks
-	@cat > .git/hooks/pre-commit << 'EOF'
-	#!/bin/sh
-
-	# Run ruff format before commit
-	echo "Running ruff format..."
-	uv run ruff format
-
-	# Stage any files that were formatted
-	git add -u
-
-	echo "✓ Formatting complete and changes staged."
-	EOF
+	@echo '#!/bin/sh' > .git/hooks/pre-commit
+	@echo '' >> .git/hooks/pre-commit
+	@echo '# Run ruff format before commit' >> .git/hooks/pre-commit
+	@echo 'echo "Running ruff format..."' >> .git/hooks/pre-commit
+	@echo 'uv run ruff format' >> .git/hooks/pre-commit
+	@echo '' >> .git/hooks/pre-commit
+	@echo '# Stage any files that were formatted' >> .git/hooks/pre-commit
+	@echo 'git add -u' >> .git/hooks/pre-commit
+	@echo '' >> .git/hooks/pre-commit
+	@echo 'echo "✓ Formatting complete and changes staged."' >> .git/hooks/pre-commit
 	@chmod +x .git/hooks/pre-commit
 	@echo "✓ Pre-commit hook installed successfully!"
 
