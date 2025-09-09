@@ -49,9 +49,7 @@ def parse_days(string):
 
 
 def parse_fuse(string):
-    if re.fullmatch(r"\d+A", string):
-        return string
-    raise ValueError(f"Invalid fuse format {string}")
+    return string
 
 
 def parse_price(string):
@@ -82,3 +80,8 @@ def parse_intervals(row) -> list[Interval]:
         intervals.append(Interval(from_time=from2, to_time=to2, multiplier=multiplier2))
 
     return intervals
+
+def parse_mgas(value: str) -> list[str]:
+    if not value or value.strip().lower() == "all":
+        return []
+    return [item.strip() for item in value.strip().split(",") if item.strip()]

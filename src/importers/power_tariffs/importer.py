@@ -14,6 +14,7 @@ from src.importers.power_tariffs.utils import (
     parse_fuse,
     parse_price,
     parse_intervals,
+    parse_mgas,
 )
 from src.model import (
     PowerTariffSpec,
@@ -21,7 +22,7 @@ from src.model import (
     TimeIntervalSpec,
     MeteringGridAreaSpec,
 )
-from src.repositories.power_tariffs_repository import repository
+from src.repositories.power_tariffs_repository import repository, PowerTariffRepository
 from engrate_sdk.utils import log
 
 logger = log.get_logger(__name__)
@@ -46,6 +47,7 @@ def _parse_tariffs_headers_file() -> list[Operator]:
                 samples_per_month=row["Number of samples"],
                 time_unit=row["Time unit"],
                 building_type=parse_building_type(row["Building types"].lower()),
+                mgas=parse_mgas(row["Geolocation -> MGA"]),
                 tariff_composition=[],
             )
             operator.power_tariffs.append(power_tariff)
@@ -63,8 +65,8 @@ def _parse_tariffs_compositions_file() -> dict[str, list[PowerTariffComposition]
     ) as file:
         reader = csv.DictReader(file)
         for row in reader:
+            tariff_id = row["Fee ID"]
             try:
-                tariff_id = row["Fee ID"]
                 tariff_compositions = tariffs_compositions.get(tariff_id, [])
                 tariff_composition = PowerTariffComposition(
                     months=parse_months(row["Months Number"]),
@@ -117,7 +119,7 @@ async def load_tariffs_definitions():
             )
             continue
 
-        # get the metering grid area for that operator
+        # get all the metering grid area for that operator
         metering_grid_areas = await repository.get_metering_grid_areas_by_operator(
             existing_operator.uid
         )
@@ -172,6 +174,17 @@ async def _save_operator_tariffs(
             logger.warning(
                 f"No tariffs composition for {power_tariff.name} EDIEL {operator.ediel}"
             )
+
+        if power_tariff.mgas:
+            mgas = []
+            for mga_id in power_tariff.mgas:
+                mga = await repository.get_metering_grid_area_by_code(mga_id)
+                if mga:
+                    mgas.append(mga)
+            metering_grid_areas = mgas
+
+        if not metering_grid_areas:
+            raise ValueError("No valid metering grid areas found")
 
         power_tariff = PowerTariffSpec(
             name=power_tariff.name,

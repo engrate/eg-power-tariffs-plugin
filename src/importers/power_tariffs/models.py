@@ -29,6 +29,7 @@ class PowerTariff(BaseModel):
     samples_per_month: int
     time_unit: str
     building_type: BuildingType
+    mgas: list[str] = []
     tariff_composition: List[PowerTariffComposition]
 
 

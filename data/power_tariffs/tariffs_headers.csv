@@ -1,41 +1,41 @@
-Tariff ID,Provider Ediel,Name,Model Name,Description,Number of samples,Time unit,Building types
-12,11100,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house"
-7,11900,Default Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks (kW/h),5,hourly,"detached_house,terraced_house,summer_house,apartments"
-8,11900,Alternative fee,avg_monthly_peaks,Average of the 2 nightly and daily highest power peaks (kW/h),2,hourly,"detached_house,terraced_house,summer_house,apartments"
-2,14900,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks (kW/h),3,hourly,"detached_house, terraced_house, summer_house"
-16,16600,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,
-17,16900,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,
-23,17400,Yearly - One single peak,,Yearly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house,apartments"
-24,18100,Standard tariff low voltage 0.4 kV,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-25,18900,Standard fee,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-9,19200,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house,apartments"
-3,20500,Standard fee,avg_monthly_peaks_power_factor,Average of the 3 highest power peaks (kW/h) multiplied by factor,3,hourly,"detached_house,terraced_house,summer_house"
-26,23600,Standard fee,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-27,24000,Standard tarrif low voltage 0.4 kV,avg_monthly_peaks,Average of the 2 highest power peaks (kW/h),2,hourly,"detached_house,terraced_house,summer_house, apartments"
-28,24100,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-15,24200,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,apartments
-1,24300,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house, terraced_house, summer_house"
-10,24700,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house"
-29,24900,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-30,25800,Standard fee,avg_monthly_peaks,Average of the 3 highest low load and avarage of high load power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house, apartments"
-31,26300,Standard fee,avg_monthly_peaks,Average of the 2 highest power peaks for normal time and 1 highest for peak time,2,hourly,"detached_house,terraced_house,summer_house"
-32,27300,Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks (kW/h),5,hourly,"detached_house,terraced_house,summer_house, apartments"
-33,27700,Standard price list,avg_monthly_peaks,Average of the 5 monthly highest power peaks (kW/h),5,hourly,"detached_house,terraced_house,summer_house"
-34,27700,Price list options,avg_monthly_peaks_power_factor,Month's highest power peak during the day and at night with summer/winter,2,hourly,"detached_house,terraced_house,summer_house"
-35,28300,Network fee,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,"detached_house,terraced_house,summer_house"
-36,28300,Network fee appartments,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,apartments
-37,28500,Private Customer,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,"detached_house,terraced_house,summer_house"
-38,31600,Säkringsabonnemang,avg_monthly_peaks,Average of the 3 highest hourly power hours per month,3,hourly,"detached_house,terraced_house,summer_house"
-21,33500,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house,apartments"
-20,34600,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house,apartments"
-18,34800,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,apartments
-19,34800,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-11,36800,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house,apartments"
-14,39100,N4 * Low voltage power 2025,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,
-13,39200,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks (kW/h),3,hourly,"detached_house,terraced_house,summer_house"
-6,39300,Monthly - One single peak,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house, apartments"
-39,39600,Normal rate,avg_monthly_peaks,Monthly power peak and power peak during peak load period,1,hourly,"detached_house,terraced_house,summer_house"
-22,41300,Standard fee,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house,apartments"
-40,51500,Normal tariff,avg_monthly_peaks,Monthly single peak (kW/h),1,hourly,"detached_house,terraced_house,summer_house"
-4,51900,Default Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks (kW/h),5,hourly,"detached_house,terraced_house,summer_house,apartments"
-5,51900,Alternative fee,avg_monthly_peaks,Average of the 2 nightly and daily highest power peaks (kW/h),2,hourly,"detached_house,terraced_house,summer_house,apartments"
+Tariff ID,Provider Ediel,Name,Model Name,Description,Number of samples,Time unit,Building types,Geolocation -> MGA
+1,24300,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house, terraced_house, summer_house",KST
+2,14900,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house, terraced_house, summer_house","AVD,BEV,NBL,DAL,EBN,EKO,FLS,FBA,GRV,GBN,NHA,HAL,HAR,HMM,HMR,HJD,HDV,JDA,KEM,KOB,KUB,LDG,LHD,MOR,NHN,OBO,OCK,ORT,NSK,SSK,STH,STO,TBY,TRS,TRJ,VLB,VAT,VNB,VAL,VML"
+3,20500,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks multiplied by factor,3,hourly,"detached_house,terraced_house,summer_house",KVM
+4,51900,Default Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks,5,hourly,"detached_house,terraced_house,summer_house",KHB
+5,51900,Alternative fee,avg_monthly_peaks,Average of the 2 nightly peaks and avarage of the 2 daily highest power peaks,2,hourly,"detached_house,terraced_house,summer_house",KHB
+6,39300,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house, apartments","TLB,VLS"
+7,11900,Default Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks,5,hourly,"detached_house,terraced_house,summer_house",LNK
+8,11900,Alternative fee,avg_monthly_peaks,Average of the 2 nightly peaks and avarage of the 2 daily highest power peaks,2,hourly,"detached_house,terraced_house,summer_house",LNK
+9,19200,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments","FLN,FLO"
+10,24700,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house","BJK,HLB,HOR,KPN,LMA,LUN,RSJ,TOS"
+11,36800,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments",SDT
+12,11100,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house",BRS
+13,39200,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks,3,hourly,"detached_house,terraced_house,summer_house",VXO
+14,39100,N4 * Low voltage power 2025,avg_monthly_peaks,Monthly single peak,1,hourly,,ORV
+15,24200,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,apartments,KUV
+18,34800,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,apartments,SDT
+19,34800,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house",SDT
+20,34600,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks,3,hourly,"terraced_house,summer_house,detached_house",LHM
+21,33500,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments",SOT
+22,42300,Standard fee,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house,apartments",SKD
+23,17400,Yearly - One single peak,avg_monthly_peaks,Monthly peak during low load and Monthly peak during high load,1,hourly,"detached_house,terraced_house,summer_house",BRG
+25,18900,Standard fee,avg_monthly_peaks,Monthly power peak and power peak during peak load period,1,hourly,"detached_house,terraced_house,summer_house",DFS
+26,23600,Standard fee,avg_monthly_peaks,Average of the 2 highest power peaks for normal time and average of 2 highest for peak time,2,hourly,"detached_house,terraced_house,summer_house",JNK
+27,24000,Standard tarrif low voltage 0.4 kV,avg_monthly_peaks,Average of the 2 highest power peaks,2,hourly,"detached_house,terraced_house,summer_house, apartments",KHN
+28,24100,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house",KSA
+29,24900,Monthly - One single peak,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house",KRH
+30,25800,Standard fee,avg_monthly_peaks,Average of the 3 highest low load and avarage of high load power peaks,3,hourly,"detached_house,terraced_house,summer_house, apartments","GNF,LER,STR"
+31,26300,Standard fee,avg_monthly_peaks,Average of the 2 highest power peaks for normal time and average of 2 highest for peak time,2,hourly,"detached_house,terraced_house,summer_house","LDB,NKL"
+32,27300,Standard fee,avg_monthly_peaks,Average of the 5 monthly highest power peaks,5,hourly,"detached_house,terraced_house,summer_house, apartments","MLG,TYS,URM"
+33,27700,Price list - Standard,avg_monthly_peaks,Average of the 5 monthly highest power peaks,5,hourly,"detached_house,terraced_house,summer_house",MBY
+34,27700,Price list - Alternative,avg_monthly_peaks,Month's highest power peak during the day and at night with summer/winter,1,hourly,"detached_house,terraced_house,summer_house",MBY
+35,28300,Network fee,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,"detached_house,terraced_house,summer_house",MDL
+36,28300,Network fee appartments,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,apartments,MDL
+37,28500,Private Customer,avg_monthly_peaks,Average of the 3 monthly highest power peaks during peak time,3,hourly,"detached_house,terraced_house,summer_house",JRA
+38,31600,Säkringsabonnemang,avg_monthly_peaks,Average of the 3 highest hourly power hours per month,3,hourly,"detached_house,terraced_house,summer_house","HBY,SAH,VBK"
+39,39600,Normal rate,avg_monthly_peaks,Monthly power peak and power peak during peak load period,1,hourly,"detached_house,terraced_house,summer_house",FBN
+40,51500,Normal tariff,avg_monthly_peaks,Monthly single peak,1,hourly,"detached_house,terraced_house,summer_house",PTE
+41,17400,Yearly - One single peak,avg_monthly_peaks,Monthly peak during low load and Monthly peak during high load,1,hourly,apartments,BRG
+42,17700,Standard fee,avg_monthly_peaks,Monthly power peak and power peak during peak load period,1,hourly,"detached_house,terraced_house,summer_house",BKE
+43,34600,Standard appartment fee,avg_monthly_peaks,Average of the 3 highest daily power peaks,3,hourly,apartments,LHM

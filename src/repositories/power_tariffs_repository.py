@@ -214,14 +214,17 @@ class PowerTariffRepository:
             return operator
 
     @with_session
-    async def get_metering_grid_area_by_code(self, code: str, session: AsyncSession):
+    async def get_metering_grid_area_by_code(self, code: str, session: AsyncSession) ->  MeteringGridAreaSpec | None:
         """Get a specific metering grid area by its code."""
 
         result = await session.execute(
             select(MeteringGridArea).where(MeteringGridArea.code == code)
+            .options(selectinload(MeteringGridArea.grid_operator))
         )
         area = result.scalars().one_or_none()
-        return area
+        if area is None:
+            return None
+        return  PowerTariffRepository.mga_to_spec(area)
 
     @with_session
     async def get_metering_grid_areas_by_operator(
