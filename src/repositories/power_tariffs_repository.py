@@ -287,12 +287,12 @@ class PowerTariffRepository:
             name=power_tariff.name,
             model=power_tariff.model,
             description=power_tariff.description,
-            samplesPerMonth=power_tariff.samples_per_month,
-            timeUnit=power_tariff.time_unit,
-            buildingType=power_tariff.building_type,
-            lastUpdated=power_tariff.last_updated,
-            validFrom=power_tariff.valid_from,
-            validTo=power_tariff.valid_to,
+            samples_per_month=power_tariff.samples_per_month,
+            time_unit=power_tariff.time_unit,
+            building_type=power_tariff.building_type,
+            last_updated=power_tariff.last_updated,
+            valid_from=power_tariff.valid_from,
+            valid_to=power_tariff.valid_to,
             voltage=power_tariff.voltage,
             compositions=power_tariff.compositions,
             metering_grid_areas=mga,
@@ -309,9 +309,9 @@ class PowerTariffRepository:
         return MeteringGridAreaSpec(
             code=mga.code,
             name=mga.name,
-            countryCode=mga.country_code,
-            meteringBusinessArea=mga.metering_business_area,
-            gridOperator=operator_spec.model_dump() if operator_spec else None,
+            country_code=mga.country_code,
+            metering_business_area=mga.metering_business_area,
+            grid_operator=operator_spec.model_dump() if operator_spec else None,
         )
 
 

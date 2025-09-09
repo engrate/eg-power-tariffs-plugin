@@ -40,10 +40,10 @@ async def load_metering_grid_areas():
 
             mag = MeteringGridAreaSpec(
                 code=mga_code,
-                countryCode=country,
+                country_code=country,
                 name=mga_name,
-                meteringBusinessArea=mba_code,
-                gridOperator=existing_operator.model_dump(),
+                metering_business_area=mba_code,
+                grid_operator=existing_operator.model_dump(),
             )
             existing_mga = await repository.get_metering_grid_area_by_code(mga_code)
             if existing_mga:
