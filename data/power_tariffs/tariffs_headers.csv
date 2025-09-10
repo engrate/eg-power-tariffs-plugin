@@ -9,7 +9,7 @@ Tariff ID,Provider Ediel,Name,Model Name,Description,Number of samples,Time unit
 8,11900,Alternative fee,avg_monthly_peaks,Average of the 2 nightly peaks and avarage of the 2 daily highest power peaks,2,hourly,"detached_house,terraced_house,summer_house",LNK
 9,19200,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments","FLN,FLO"
 10,24700,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house","BJK,HLB,HOR,KPN,LMA,LUN,RSJ,TOS"
-11,36800,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments",SDT
+11,36800,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house,apartments",VBG
 12,11100,Standard fee,avg_monthly_peaks,Average of the 3 highest power peaks,3,hourly,"detached_house,terraced_house,summer_house",BRS
 13,39200,Standard fee,avg_monthly_peaks,Average of the 3 highest daily power peaks,3,hourly,"detached_house,terraced_house,summer_house",VXO
 14,39100,N4 * Low voltage power 2025,avg_monthly_peaks,Monthly single peak,1,hourly,,ORV
