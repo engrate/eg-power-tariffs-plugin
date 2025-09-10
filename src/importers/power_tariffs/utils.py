@@ -81,6 +81,7 @@ def parse_intervals(row) -> list[Interval]:
 
     return intervals
 
+
 def parse_mgas(value: str) -> list[str]:
     if not value or value.strip().lower() == "all":
         return []

@@ -54,8 +54,11 @@ help: ## Show this help message
 	@echo "  make prune           - Remove all unused containers, networks, images"
 	@echo ""
 	@echo "Deployment:"
-	@echo "  make push-staging-image  - Push backend Docker image to eg-sandbox-registry staging ECR"
+	@echo "  make push-staging-image  - Push backend Docker image to eg-staging-registry staging ECR"
+	@echo "  make push-sandbox-image  - Push backend Docker image to eg-sandbox-registry sandbox ECR"
+	@echo "  make push-production-image  - Push backend Docker image to eg-production-registry production ECR"
 	@echo '  promote-staging-to-sandbox-image Promote backend Docker image from sandbox to prod (provide TAG: make promote-staging-to-sandbox-image TAG=exampletag)'
+
 
 # Docker Compose Commands
 .PHONY: up
@@ -207,9 +210,14 @@ fresh: ## Stop everything, clean volumes, and start fresh (WARNING: Deletes all 
 push-staging-image:
 	@bin/push-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs
 
+.PHONY: push-production-image
+push-production-image:
+	@bin/push-image 739275443444.dkr.ecr.eu-west-1.amazonaws.com/eg-production-registry/power-tariffs
+
 .PHONY: promote-staging-to-sandbox-image
 promote-staging-to-sandbox-image: ## Promote backend Docker image from staging to sandbox (provide TAG: make promote-staging-to-sandbox-image TAG=exampletag)
 	@bin/promote-image 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-staging-registry/power-tariffs 150867077257.dkr.ecr.eu-west-1.amazonaws.com/eg-sandbox-registry/power-tariffs $(TAG)
+
 
 .PHONY: install-hooks
 install-hooks:
