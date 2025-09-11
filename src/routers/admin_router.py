@@ -35,7 +35,9 @@ async def version_check():
     return {"version": version}
 
 
-@router.get("/metrics", response_model=dict, summary="Metrics endpoint")
+@router.get(
+    "/metrics", include_in_schema=False, response_model=dict, summary="Metrics endpoint"
+)
 async def metrics_check():
     """Metrics endpoint."""
     try:
