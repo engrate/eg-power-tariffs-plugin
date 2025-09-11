@@ -33,18 +33,3 @@ async def version_check():
         raise HTTPException(status_code=409, detail="Could not determine version")
 
     return {"version": version}
-
-
-@router.get(
-    "/metrics", include_in_schema=False, response_model=dict, summary="Metrics endpoint"
-)
-async def metrics_check():
-    """Metrics endpoint."""
-    try:
-        from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
-        from fastapi import Response
-
-        metrics_data = generate_latest()
-        return Response(content=metrics_data, media_type=CONTENT_TYPE_LATEST)
-    except ImportError:
-        raise HTTPException(status_code=501, detail="Prometheus client not installed")
