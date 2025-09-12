@@ -39,7 +39,7 @@ async def power_tariff_by_postal_code(
 
 
 @router.get(
-    "/{country_code}/lat/{lat}/long/{long}",
+    "/{country_code}/lat/{lat}/lon/{lon}",
     response_model=list[PowerTariffSpec],
     summary="Returns a power tariffs by latitude and longitude",
     response_model_exclude_none=True,
@@ -48,11 +48,11 @@ async def power_tariff_by_coordinate(
     power_tariffs_service: PowerTariffSvc,
     country_code: CountryCode,
     lat: float,
-    long: float,
+    lon: float,
 ):
     """Fetches power tariffs by latitude and longitude"""
     return await power_tariffs_service.get_power_tariffs_by_coordinates(
-        country_code, lat, long
+        country_code, lat, lon
     )
 
 
